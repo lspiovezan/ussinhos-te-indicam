@@ -1,0 +1,77 @@
+/* ============================================================
+   GRID DE DESTINOS — estilo revista de viagem
+   ============================================================ */
+
+   .bate-voltas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    margin-top: 28px;
+  }
+  
+  /* ============================================================
+     CARD — premium, elegante, boutique
+     ============================================================ */
+  
+  .bate-voltas-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    background: var(--warm-white);
+    padding: 12px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: 0.25s ease;
+  }
+  
+  .bate-voltas-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+  
+  /* ============================================================
+     IMAGEM — cobre todo o card, estilo Airbnb
+     ============================================================ */
+  
+  .bate-voltas-img {
+    width: 100%;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--radius);
+    transition: 0.25s ease;
+  }
+  
+  .bate-voltas-card:hover .bate-voltas-img {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+  }
+  
+  /* ============================================================
+     TEXTO
+     ============================================================ */
+  
+  .bate-voltas-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--petrol-blue);
+    text-align: center;
+  }
+  
+  /* ============================================================
+     MOBILE — 2 por linha
+     ============================================================ */
+  
+  @media (max-width: 700px) {
+    .bate-voltas-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+  
+    .bate-voltas-img {
+      height: 120px;
+    }
+  }
+  

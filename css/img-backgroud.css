@@ -1,0 +1,144 @@
+/* ============================================================
+   BATE‑VOLTAS — IMAGENS DOS CARDS
+   ============================================================ */
+
+/* Estilo base para todas as imagens dos cards */
+.bate-voltas-img {
+    width: 100%;
+    height: 140px; /* ajuste conforme o estilo desejado */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+  
+  /* Efeito premium no hover */
+  .bate-voltas-card:hover .bate-voltas-img {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+  }
+  
+  /* ============================================================
+     IMAGENS ESPECÍFICAS POR DESTINO
+     ============================================================ */
+  
+  .bg-bergamo .bate-voltas-img {
+    background-image: url("../img/bergamo.jpg");
+  }
+  
+  
+  .bg-verona .bate-voltas-img {
+    background-image: url("../img/verona.jpg");
+  }
+  
+  .bg-veneza .bate-voltas-img {
+    background-image: url("../img/veneza.jpg");
+  }
+  
+  .bg-torino .bate-voltas-img {
+    background-image: url("../img/torino.jpg");
+  }
+  
+  .bg-monza .bate-voltas-img {
+    background-image: url("../img/monza.jpg");
+  }
+  
+  .bg-st-moritz .bate-voltas-img {
+    background-image: url("../img/st-moritz.jpg");
+  }
+
+  .bg-lagos .bate-voltas-img {
+    background-image: url("../img/lagos.jpg");
+  }
+  
+  /* ============================================================
+     CARD COMPLETO
+     ============================================================ */
+  
+  .bate-voltas-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  
+  /* Hover premium */
+  .bate-voltas-card:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+  }
+  
+  /* Label do card */
+  .bate-voltas-label {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #1F3A4A; /* petrol blue */
+  }
+  
+  /* ============================================================
+     GRID DE BATE‑VOLTAS
+     ============================================================ */
+  
+  .bate-voltas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px;
+    margin-top: 25px;
+  }
+  
+  /* ============================================================
+     BOTÕES DE BATE‑VOLTAS (se existirem)
+     ============================================================ */
+  
+  .bate-voltas-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7f7f7;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 18px 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #333;
+    transition: 0.2s ease;
+  }
+  
+  .bate-voltas-btn:hover {
+    background: #ececec;
+    border-color: #bbb;
+  }
+  
+  /* ============================================================
+     MOBILE — 2 por linha
+     ============================================================ */
+  
+  @media (max-width: 700px) {
+    .bate-voltas-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+  
+    .bate-voltas-img {
+      height: 120px;
+    }
+  
+    .bate-voltas-label {
+      font-size: 0.95rem;
+    }
+  
+    .bate-voltas-btn {
+      padding: 16px 8px;
+      font-size: 1rem;
+    }
+  }
+  

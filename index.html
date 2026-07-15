@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Guia dos Ursinhos – Página inicial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+
+</head>
+
+<body>
+
+<!-- Overlay de senha -->
+<div id="password-overlay">
+  <div id="password-box">
+    <h2>Bem-vindo ao Guia dos Ursinhos</h2>
+    <p>Digite a senha para acessar:</p>
+    <div class="password-field">
+      <input type="password" id="password-input" placeholder="Senha">
+      <button id="toggle-password" aria-label="Mostrar senha">👁️</button>
+    </div>
+    <button id="password-btn">Entrar</button>
+    <div id="password-error">Senha incorreta. Tente novamente.</div>
+  </div>
+</div>
+
+<!-- Header será carregado automaticamente -->
+<script src="js/header.js"></script>
+
+<main class="panel" id="panel-main">
+  <h1>Guia dos Ursinhos</h1>
+  <p>Bem-vindo ao nosso guia de viagem premium, acolhedor e personalizado para quem vem nos visitar em Milão.</p>
+
+  <section>
+    <h2>O que você encontra aqui</h2>
+    <ul>
+      <li>Boas-vindas e explicação do guia.</li>
+      <li>Preparação antes da viagem.</li>
+      <li>Chegada à Itália e à cidade de Milão.</li>
+      <li>Bate-voltas e outros destinos.</li>
+      <li>Retorno ao Brasil.</li>
+      <li>Mapa geral dos lugares.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Acesso rápido</h2>
+
+    <div class="cards-grid">
+      <div class="card">
+        <h3>Boas-vindas</h3>
+        <p>Mensagem especial para quem está vindo nos visitar.</p>
+        <a class="btn" href="html/boas-vindas.html">Abrir</a>
+      </div>
+
+      <div class="card">
+        <h3>Preparação</h3>
+        <p>Checklist e orientações antes da viagem.</p>
+        <a class="btn" href="html/preparacao.html">Abrir</a>
+      </div>
+
+      <div class="card">
+        <h3>Na Itália</h3>
+        <p>Chegada, transporte, Milão e outros destinos.</p>
+        <a class="btn" href="html/na-italia.html">Abrir</a>
+      </div>
+
+      <div class="card">
+        <h3>Voltando ao Brasil</h3>
+        <p>Dicas para o retorno e organização final.</p>
+        <a class="btn" href="html/voltando-ao-brasil.html">Abrir</a>
+      </div>
+
+      <div class="card">
+        <h3>Mapa</h3>
+        <p>Visão geral dos principais pontos.</p>
+        <a class="btn" href="html/mapa.html">Abrir</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer padrão -->
+<script src="js/footer.js"></script>
+
+<script>
+  const overlay = document.getElementById("password-overlay");
+  const input = document.getElementById("password-input");
+  const btn = document.getElementById("password-btn");
+  const error = document.getElementById("password-error");
+  const toggle = document.getElementById("toggle-password");
+
+  // Verifica se já está logado
+  if (localStorage.getItem("ursinhosAuth") === "true") {
+    overlay.style.display = "none";
+  }
+
+  btn.addEventListener("click", () => {
+    if (input.value === "Milao_dos_Ursinhos") {
+      overlay.style.display = "none";
+      localStorage.setItem("ursinhosAuth", "true");
+    } else {
+      error.style.display = "block";
+    }
+  });
+
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") btn.click();
+  });
+
+  // Mostrar/ocultar senha
+  toggle.addEventListener("click", () => {
+    if (input.type === "password") {
+      input.type = "text";
+      toggle.textContent = "🙈";
+    } else {
+      input.type = "password";
+      toggle.textContent = "👁️";
+    }
+  });
+</script>
+
+</body>
+</html>

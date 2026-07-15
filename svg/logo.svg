@@ -1,0 +1,12 @@
+<svg width="180" height="240" viewBox="0 0 180 240" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .line { stroke:#1F3A4A; stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .fill { fill:#AFC7D9; }
+  </style>
+
+  <circle class="line" cx="90" cy="60" r="40"/>
+  <rect class="fill" x="50" y="100" width="80" height="120" rx="12"/>
+  <path class="line" d="M50 140 q-20 20 0 40"/>
+  <path class="line" d="M130 140 q20 20 0 40"/>
+</svg>
+
