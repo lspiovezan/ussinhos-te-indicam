@@ -31,53 +31,43 @@
 
 
 /* ============================
-   CARD DO APP — LAYOUT VERTICAL
+   CARD DO APP
    ============================ */
 
 .app-card {
-  display: none;
+  display: none; /* aparece quando a categoria é selecionada */
   background: var(--warm-white);
   border-radius: 18px;
   box-shadow: var(--shadow-md);
-  padding: 26px;
+  padding: 22px;
   margin-bottom: 32px;
-
-  /* layout vertical */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
-
-/* ============================
-   TÍTULO DO APP
-   ============================ */
-
 .app-title {
-  font-size: 36px;
+  font-size: 32px;      /* maior */
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   color: var(--petrol-blue);
 }
 
 
 /* ============================
-   LOGO DO APP (quadrado, 50% da tela)
+   LOGO GRANDE (50% da tela)
    ============================ */
 
 .app-logo {
   width: 100%;
-  height: 50vh;
-  max-height: 500px;
-  aspect-ratio: 1 / 1; /* sempre quadrado */
+  height: 50vh;         /* metade da tela */
+  max-height: 500px;    /* limite no desktop */
+  aspect-ratio: 1 / 1;  /* sempre quadrado */
   background: var(--cream);
   border-radius: 18px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
 .app-logo img {
@@ -88,21 +78,32 @@
 
 
 /* ============================
+   DESCRIÇÃO
+   ============================ */
+
+.app-description {
+  font-size: 20px;      /* dobro do tamanho */
+  line-height: 1.5;
+  color: var(--petrol-blue);
+  margin-bottom: 26px;
+}
+
+
+/* ============================
    BOTÕES DE LOJA
    ============================ */
 
 .store-buttons {
   display: flex;
   justify-content: center;
-  gap: 22px;
-  margin-top: 10px;
+  gap: 18px;
 }
 
 .store-btn {
-  width: 90px;
-  height: 90px;
+  width: 70px;          /* maior */
+  height: 70px;
   background: var(--cream);
-  border-radius: 16px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,27 +117,11 @@
 }
 
 .store-btn img {
-  width: 52px;
-  height: 52px;
+  width: 40px;          /* maior */
+  height: 40px;
 }
 
 
 /* ============================
-   MOBILE — mantém layout vertical
-   ============================ */
-
-@media (max-width: 800px) {
-  .app-title {
-    font-size: 32px;
-  }
-
-  .store-btn {
-    width: 80px;
-    height: 80px;
-  }
-
-  .store-btn img {
-    width: 46px;
-    height: 46px;
-  }
-}
+   DESKTOP
+   =================

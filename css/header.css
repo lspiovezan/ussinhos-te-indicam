@@ -1,37 +1,85 @@
-/* ===== HEADER ===== */
+/* ============================
+   HEADER BASE
+   ============================ */
+
 header {
   background: var(--warm-white);
   box-shadow: var(--shadow-md);
   display: flex;
-  align-items: center;
+  align-items: flex-start;      /* alinha tudo para cima */
   justify-content: space-between;
-  padding: 0 24px;
-  height: var(--header-height, 70px);
+  padding: 0 18px;
+  height: 72px;                 /* header pequeno */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
+  overflow: hidden;             /* impede que a logo estoure o header */
 }
 
-/* ===== LOGO ===== */
-.home-button img {
-  height: 56px;
+/* ============================
+   ESTRUTURA EM 3 COLUNAS
+   ============================ */
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+}
+
+/* Coluna esquerda: botão sanduíche */
+.header-left {
+  flex: 1;
+}
+
+/* Coluna central: logo */
+.header-center {
+  flex: 1;
+  justify-content: center;      /* centraliza horizontalmente */
+}
+
+/* Coluna direita: menu desktop */
+.header-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* ============================
+   LOGO CENTRALIZADA E ALINHADA PARA CIMA
+   ============================ */
+
+.header-center {
+  display: flex;
+  justify-content: center;     /* centraliza horizontalmente */
+  align-items: center;         /* centraliza verticalmente */
+  height: 72px;                /* altura do header */
+}
+
+/* Logo */
+.header-logo {
+  height: auto;                /* garante que a imagem caiba no header */
+  width: 280px;                 /* mantém proporção original */
+  object-fit: contain;         /* garante que a imagem apareça inteira */
   transition: 0.25s ease;
+  margin-top: 0;
 }
 
-.home-button img:hover {
+.header-logo:hover {
   transform: scale(1.05);
 }
 
-/* ===== MENU ===== */
+
+
+/* ============================
+   MENU DESKTOP
+   ============================ */
+
 .menu {
   display: flex;
   gap: 16px;
-}
-
-.menu-item {
-  position: relative;
 }
 
 .menu-item > a {
@@ -47,11 +95,14 @@ header {
   color: var(--terracotta);
 }
 
-/* ===== SUBMENU (NÍVEL 1) ===== */
+/* ============================
+   SUBMENU NÍVEL 1
+   ============================ */
+
 .submenu {
   display: none;
   position: absolute;
-  top: 100%; /* sempre abre logo abaixo */
+  top: 100%;
   left: 0;
   background: var(--warm-white);
   box-shadow: var(--shadow-md);
@@ -64,19 +115,10 @@ header {
   display: block;
 }
 
-.submenu a {
-  display: block;
-  padding: 8px 14px;
-  color: var(--petrol-blue);
-  white-space: nowrap;
-}
+/* ============================
+   SUBMENU NÍVEL 2
+   ============================ */
 
-.submenu a:hover {
-  background: var(--cream);
-  color: var(--terracotta);
-}
-
-/* ===== SUBMENU (NÍVEL 2) ===== */
 .submenu-item {
   position: relative;
 }
@@ -84,8 +126,8 @@ header {
 .submenu-level2 {
   display: none;
   position: absolute;
-  top: 0;            /* alinhado ao item pai */
-  left: 100%;        /* abre ao lado, como menu profissional */
+  top: 0;
+  left: 100%;
   background: var(--warm-white);
   box-shadow: var(--shadow-md);
   padding: 8px 0;
@@ -97,50 +139,35 @@ header {
   display: block;
 }
 
-.submenu-level2 a {
-  display: block;
-  padding: 8px 14px;
-  color: var(--petrol-blue);
-}
+/* ============================
+   MOBILE
+   ============================ */
 
-.submenu-level2 a:hover {
-  background: var(--cream);
-  color: var(--terracotta);
-}
-
-/* ===== MOBILE ===== */
 .menu-toggle {
-  font-size: 28px;
+  font-size: 30px;
   cursor: pointer;
-  margin-right: 12px;
-  display: none;
+  display: none;                /* só aparece no mobile */
 }
 
 @media (max-width: 700px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    padding: 12px;
-  }
 
   .menu-toggle {
     display: block;
   }
 
   .menu {
+    display: none;              /* esconde o menu no mobile */
     flex-direction: column;
-    gap: 10px;
-    display: none;
+    gap: 12px;
     width: 100%;
+    margin-top: 12px;
     text-align: center;
   }
 
   .menu.show {
-    display: flex;
+    display: flex;              /* aparece quando clica no sanduíche */
   }
 
-  /* Submenus no mobile: tudo abre em lista vertical */
   .submenu,
   .submenu-level2 {
     position: static;

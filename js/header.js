@@ -1,26 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Caminho real da página no servidor
+  /* ============================
+     1) Detecta caminho da página
+     ============================ */
   const path = window.location.pathname;
-
-  // Detecta se está dentro da pasta /html
   const insideHtml = path.includes("/html/");
 
-  // Calcula quantos níveis acima precisa subir
   let depth = 0;
   if (insideHtml) {
     const afterHtml = path.split("/html/")[1];
     depth = afterHtml.split("/").length - 1;
   }
 
-  // Prefixo correto para qualquer profundidade
   const prefix = insideHtml ? "../".repeat(depth) : "";
 
-  // Caminho do header
   const headerPath = `${prefix}header.html`;
   const menuPath = `${prefix}js/menu.js`;
 
-  // Carrega o header
+
+  /* ============================
+     2) Carrega o header
+     ============================ */
   fetch(headerPath)
     .then(r => {
       if (!r.ok) throw new Error(`Header não encontrado: ${headerPath}`);
@@ -28,10 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(html => {
 
-      // Insere o header diretamente no body
+      // Insere o header no topo
       document.body.insertAdjacentHTML("afterbegin", html);
 
-      // Corrige links automaticamente
+
+      /* ============================
+         3) Corrige links do header
+         ============================ */
       document.querySelectorAll("header a").forEach(a => {
         const href = a.getAttribute("href");
         if (!href) return;
@@ -43,7 +46,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Carrega o menu.js
+
+      /* ============================
+         4) Ativa menu mobile
+         ============================ */
+      const toggle = document.querySelector(".menu-toggle");
+      const menu = document.querySelector(".menu");
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("show");
+        });
+      }
+
+
+      /* ============================
+         5) Carrega menu.js
+         ============================ */
       const script = document.createElement("script");
       script.src = menuPath;
       document.body.appendChild(script);
