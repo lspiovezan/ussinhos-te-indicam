@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Apps úteis na Itália · Guia dos Ursinhos</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/apps.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div id="header-container"></div>
+
+  <main class="page-content fade-in">
+
+    <h1>Apps úteis na Itália</h1>
+    <p>Selecione uma categoria para ver os aplicativos recomendados.</p>
+
+    <!-- CATEGORIAS -->
+    <div class="apps-categories">
+      <button class="category-btn" data-category="transporte">Transporte</button>
+      <button class="category-btn" data-category="alimentacao">Alimentação</button>
+      <button class="category-btn" data-category="utilidades">Utilidades</button>
+      <button class="category-btn" data-category="lojas">Lojas</button>
+    </div>
+
+    <!-- LISTA DE APPS -->
+    <div id="apps-list">
+
+      <!-- Exemplo: Transporte -->
+      <div class="app-card" data-category="transporte">
+        <h2 class="app-title">Omio</h2>
+
+        <div class="app-logo">
+          <img src="../img/apps/omio-logo.png" alt="Omio">
+        </div>
+
+        <p class="app-description">
+          Aplicativo ótimo para comparação de preços de passagens de avião, trem e ônibus, além de permitir comprar diretamente pelo app.
+        </p>
+
+        <div class="store-buttons">
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.goeuro.rosie" target="_blank">
+            <img src="../img/icons/android.png" alt="Android">
+          </a>
+          <a class="store-btn" href="https://apps.apple.com/us/app/omio-book-train-bus-flight/id885372509" target="_blank">
+            <img src="../img/icons/iphone.svg" alt="iPhone">
+          </a>
+        </div>
+      </div>
+
+      <!-- Você adicionará outros apps aqui seguindo o mesmo padrão -->
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-container"></div>
+
+  <script src="../js/header.js"></script>
+  <script src="../js/footer.js"></script>
+
+  <!-- JS da página -->
+  <script src="../js/apps.js"></script>
+
+</body>
+</html>

@@ -20,11 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerPath = `${prefix}header.html`;
   const menuPath = `${prefix}js/menu.js`;
 
+  // Carrega o header
   fetch(headerPath)
     .then(r => r.text())
     .then(html => {
 
-      document.body.insertAdjacentHTML("afterbegin", html);
+      // Insere o header no topo do body
+      const container = document.getElementById("header-container") || document.body;
+      container.insertAdjacentHTML("afterbegin", html);
 
       // Corrige links automaticamente
       document.querySelectorAll("header a").forEach(a => {
@@ -50,5 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const script = document.createElement("script");
       script.src = menuPath;
       document.body.appendChild(script);
-    });
+    })
+    .catch(err => console.error("Erro ao carregar header:", err));
 });
