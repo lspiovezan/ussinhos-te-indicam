@@ -1,0 +1,156 @@
+/* ===== HEADER ===== */
+header {
+  background: var(--warm-white);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: var(--header-height, 70px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* ===== LOGO ===== */
+.home-button img {
+  height: 56px;
+  transition: 0.25s ease;
+}
+
+.home-button img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== MENU ===== */
+.menu {
+  display: flex;
+  gap: 16px;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-item > a {
+  color: var(--petrol-blue);
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  transition: 0.25s ease;
+}
+
+.menu-item > a:hover {
+  background: var(--cream);
+  color: var(--terracotta);
+}
+
+/* ===== SUBMENU (NÍVEL 1) ===== */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%; /* sempre abre logo abaixo */
+  left: 0;
+  background: var(--warm-white);
+  box-shadow: var(--shadow-md);
+  padding: 8px 0;
+  border-radius: 6px;
+  min-width: 200px;
+}
+
+.menu-item:hover > .submenu {
+  display: block;
+}
+
+.submenu a {
+  display: block;
+  padding: 8px 14px;
+  color: var(--petrol-blue);
+  white-space: nowrap;
+}
+
+.submenu a:hover {
+  background: var(--cream);
+  color: var(--terracotta);
+}
+
+/* ===== SUBMENU (NÍVEL 2) ===== */
+.submenu-item {
+  position: relative;
+}
+
+.submenu-level2 {
+  display: none;
+  position: absolute;
+  top: 0;            /* alinhado ao item pai */
+  left: 100%;        /* abre ao lado, como menu profissional */
+  background: var(--warm-white);
+  box-shadow: var(--shadow-md);
+  padding: 8px 0;
+  border-radius: 6px;
+  min-width: 200px;
+}
+
+.submenu-item:hover > .submenu-level2 {
+  display: block;
+}
+
+.submenu-level2 a {
+  display: block;
+  padding: 8px 14px;
+  color: var(--petrol-blue);
+}
+
+.submenu-level2 a:hover {
+  background: var(--cream);
+  color: var(--terracotta);
+}
+
+/* ===== MOBILE ===== */
+.menu-toggle {
+  font-size: 28px;
+  cursor: pointer;
+  margin-right: 12px;
+  display: none;
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 12px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+    display: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  /* Submenus no mobile: tudo abre em lista vertical */
+  .submenu,
+  .submenu-level2 {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .submenu a,
+  .submenu-level2 a {
+    padding: 10px;
+  }
+}
