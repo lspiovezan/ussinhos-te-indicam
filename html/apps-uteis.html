@@ -9,62 +9,41 @@
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/apps.css">
 </head>
+
 <body>
 
   <!-- HEADER -->
-  <div id="header-container"></div>
+  <script src="../js/header.js"></script>
 
   <main class="page-content fade-in">
 
-    <!-- Título da página -->
     <h1>Apps úteis na Itália</h1>
-    <p>Selecione uma categoria para ver os aplicativos recomendados.</p>
+
+    <p class="apps-intro">
+      Aqui estão os aplicativos essenciais para se locomover, comprar passagens,
+      entender rotas e aproveitar melhor sua viagem pela Itália.
+    </p>
 
     <!-- CATEGORIAS -->
     <div class="apps-categories">
-      <button class="category-btn" data-category="transporte">Transporte</button>
-      <button class="category-btn" data-category="alimentacao">Alimentação</button>
-      <button class="category-btn" data-category="utilidades">Utilidades</button>
-      <button class="category-btn" data-category="lojas">Lojas</button>
+      <button class="category-btn" data-category="Transporte">Transporte</button>
+      <button class="category-btn" data-category="Alimentação">Alimentação</button>
+      <button class="category-btn" data-category="Utilidades">Utilidades</button>
+      <button class="category-btn" data-category="Lojas">Lojas</button>
     </div>
 
-    <!-- LISTA DE APPS -->
-    <div id="apps-list">
+    <!-- TÍTULO DA CATEGORIA ATUAL -->
+    <h2 id="categoria-atual" class="categoria-atual">Todos os apps</h2>
 
-      <!-- APP: OMIO (exemplo) -->
-      <div class="app-card" data-category="transporte">
-
-        <!-- Título do app -->
-        <h2 class="app-title">Omio</h2>
-
-        <!-- Logo quadrada grande -->
-        <div class="app-logo">
-          <img src="../img/apps/omio-logo.png" alt="Omio">
-        </div>
-
-        <!-- Botões de loja -->
-        <div class="store-buttons">
-          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.goeuro.rosie" target="_blank">
-            <img src="../img/icons/android.png" alt="Android">
-          </a>
-          <a class="store-btn" href="https://apps.apple.com/us/app/omio-book-train-bus-flight/id885372509" target="_blank">
-            <img src="../img/icons/iphone.svg" alt="iPhone">
-          </a>
-        </div>
-
-      </div>
-
-      <!-- Adicione outros apps seguindo o mesmo padrão -->
-
-    </div>
+    <!-- LISTA DE APPS (gerada via JS) -->
+    <div id="apps-list" class="apps-container"></div>
 
   </main>
 
   <!-- FOOTER -->
-  <div id="footer-container"></div>
-
-  <script src="../js/header.js"></script>
   <script src="../js/footer.js"></script>
+
+  <!-- JS da página -->
   <script src="../js/apps.js"></script>
 
 </body>

@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ============================
-     1) Detecta caminho da página
-     ============================ */
   const path = window.location.pathname;
   const insideHtml = path.includes("/html/");
 
@@ -12,15 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
     depth = afterHtml.split("/").length - 1;
   }
 
-  const prefix = insideHtml ? "../".repeat(depth) : "";
+  // CORREÇÃO: sempre sobe +1 nível além do depth
+  const prefix = insideHtml ? "../".repeat(depth + 1) : "";
 
   const headerPath = `${prefix}header.html`;
   const menuPath = `${prefix}js/menu.js`;
 
-
-  /* ============================
-     2) Carrega o header
-     ============================ */
   fetch(headerPath)
     .then(r => {
       if (!r.ok) throw new Error(`Header não encontrado: ${headerPath}`);
@@ -28,13 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(html => {
 
-      // Insere o header no topo
       document.body.insertAdjacentHTML("afterbegin", html);
 
-
-      /* ============================
-         3) Corrige links do header
-         ============================ */
       document.querySelectorAll("header a").forEach(a => {
         const href = a.getAttribute("href");
         if (!href) return;
@@ -46,10 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-
-      /* ============================
-         4) Ativa menu mobile
-         ============================ */
       const toggle = document.querySelector(".menu-toggle");
       const menu = document.querySelector(".menu");
 
@@ -59,10 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-
-      /* ============================
-         5) Carrega menu.js
-         ============================ */
       const script = document.createElement("script");
       script.src = menuPath;
       document.body.appendChild(script);
