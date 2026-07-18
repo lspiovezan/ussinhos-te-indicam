@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  // Caminho real da página no servidor
   const path = window.location.pathname;
 
   // Detecta se está dentro da pasta /html
@@ -8,26 +9,27 @@ document.addEventListener("DOMContentLoaded", () => {
   // Calcula quantos níveis acima precisa subir
   let depth = 0;
   if (insideHtml) {
-    const afterHtml = path.split("/html/")[1]; 
+    const afterHtml = path.split("/html/")[1];
     depth = afterHtml.split("/").length - 1;
   }
 
-  // CORREÇÃO IMPORTANTE:
-  // prefix = "../".repeat(depth)
+  // Prefixo correto para qualquer profundidade
   const prefix = insideHtml ? "../".repeat(depth) : "";
 
-  // Caminhos corretos
+  // Caminho do header
   const headerPath = `${prefix}header.html`;
   const menuPath = `${prefix}js/menu.js`;
 
   // Carrega o header
   fetch(headerPath)
-    .then(r => r.text())
+    .then(r => {
+      if (!r.ok) throw new Error(`Header não encontrado: ${headerPath}`);
+      return r.text();
+    })
     .then(html => {
 
-      // Insere o header no topo do body
-      const container = document.getElementById("header-container") || document.body;
-      container.insertAdjacentHTML("afterbegin", html);
+      // Insere o header diretamente no body
+      document.body.insertAdjacentHTML("afterbegin", html);
 
       // Corrige links automaticamente
       document.querySelectorAll("header a").forEach(a => {
@@ -35,21 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!href) return;
 
         if (insideHtml) {
-          if (href === "") {
-            a.href = `${prefix}index.html`;
-          } else {
-            a.href = `${href}`;
-          }
+          a.href = href === "" ? `${prefix}index.html` : `${href}`;
         } else {
-          if (href === "") {
-            a.href = "index.html";
-          } else {
-            a.href = `html/${href}`;
-          }
+          a.href = href === "" ? "index.html" : `html/${href}`;
         }
       });
 
-      // Carrega menu.js depois do header existir
+      // Carrega o menu.js
       const script = document.createElement("script");
       script.src = menuPath;
       document.body.appendChild(script);
