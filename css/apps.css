@@ -6,16 +6,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .category-btn {
   flex: 1;
-  padding: 14px;
+  padding: 16px;
   background: var(--cream);
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--petrol-blue);
   box-shadow: var(--shadow-sm);
@@ -31,58 +31,59 @@
 
 
 /* ============================
-   CARD DO APP
+   CARD DO APP — LAYOUT VERTICAL
    ============================ */
 
 .app-card {
-  display: none; /* só aparece quando a categoria é selecionada */
+  display: none;
   background: var(--warm-white);
-  border-radius: 14px;
+  border-radius: 18px;
   box-shadow: var(--shadow-md);
-  padding: 18px;
-  margin-bottom: 24px;
+  padding: 26px;
+  margin-bottom: 32px;
+
+  /* layout vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
+
+/* ============================
+   TÍTULO DO APP
+   ============================ */
+
 .app-title {
-  font-size: 22px;
-  margin-bottom: 12px;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
   color: var(--petrol-blue);
 }
 
 
 /* ============================
-   LOGO GRANDE (metade da tela)
+   LOGO DO APP (quadrado, 50% da tela)
    ============================ */
 
 .app-logo {
   width: 100%;
-  height: 45vh; /* metade da tela no celular */
+  height: 50vh;
+  max-height: 500px;
+  aspect-ratio: 1 / 1; /* sempre quadrado */
   background: var(--cream);
-  border-radius: 14px;
+  border-radius: 18px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 14px;
+  margin-bottom: 26px;
 }
 
 .app-logo img {
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
   object-fit: contain;
-}
-
-
-/* ============================
-   DESCRIÇÃO
-   ============================ */
-
-.app-description {
-  font-size: 16px;
-  line-height: 1.4;
-  color: var(--petrol-blue);
-  margin-bottom: 18px;
 }
 
 
@@ -93,14 +94,15 @@
 .store-buttons {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 22px;
+  margin-top: 10px;
 }
 
 .store-btn {
-  width: 50px;
-  height: 50px;
+  width: 90px;
+  height: 90px;
   background: var(--cream);
-  border-radius: 10px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,17 +116,27 @@
 }
 
 .store-btn img {
-  width: 28px;
-  height: 28px;
+  width: 52px;
+  height: 52px;
 }
 
 
 /* ============================
-   MOBILE — já é otimizado
+   MOBILE — mantém layout vertical
    ============================ */
 
-@media (min-width: 800px) {
-  .app-logo {
-    height: 300px;
+@media (max-width: 800px) {
+  .app-title {
+    font-size: 32px;
+  }
+
+  .store-btn {
+    width: 80px;
+    height: 80px;
+  }
+
+  .store-btn img {
+    width: 46px;
+    height: 46px;
   }
 }
