@@ -24,7 +24,40 @@ document.addEventListener("DOMContentLoaded", () => {
       android: "https://play.google.com/store/apps/details?id=it.atm.milano",
       iphone: "https://apps.apple.com/app/atm-milano/id123456789",
       imagem: "../img/apps/atm.png"
+    },
+    {  
+      nome: "Omio",
+      categoria: "Transporte",
+      descricao: "Reserve trens, ônibus e voos dentro da Europa em um só app.",
+      android: "https://play.google.com/store/apps/details?id=com.goeuro.rosie",
+      iphone: "https://apps.apple.com/us/app/omio-book-train-bus-flight/id885372509",
+      imagem: "../img/apps/omio-logo.png"
+    },
+    {  
+      nome: "Trenitalia",
+      categoria: "Transporte",
+      descricao: "App oficial da companhia ferroviária italiana, essencial para viagens de Milão a outras cidades.",
+      android: "https://play.google.com/store/apps/details?id=com.lynxspa.prontotreno",
+      iphone: "https://apps.apple.com/us/app/trenitalia/id331050847",
+      imagem: "../img/apps/trenitalia-logo.png"
+    },
+    {  
+      nome: "EasyPark",
+      categoria: "Transporte",
+      descricao: "App para encontrar vagas de estacionamento e pagar pelo tempo de uso em várias cidades da Itália.",
+      android: "https://play.google.com/store/apps/details?id=net.easypark.android",
+      iphone: "https://apps.apple.com/us/app/easypark-parking-made-easy/id449594317",
+      imagem: "../img/apps/easypark-logo.png"
+    },
+    {  
+      nome: "Too Good To Go",
+      categoria: "Alimentaação",
+      descricao: "Encontre comida de restaurantes e padarias a preços reduzidos, muito popular na Itália.",
+      android: "https://play.google.com/store/apps/details?id=com.app.tgtg",
+      iphone: "https://apps.apple.com/us/app/too-good-to-go-save-good-food/id1060683933",
+      imagem: "../img/apps/easypark-logo.png"
     }
+
   ];
 
   const container = document.querySelector(".apps-container");
