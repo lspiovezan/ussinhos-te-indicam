@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       descricao: "Encontre comida de restaurantes e padarias a preços reduzidos, muito popular na Itália.",
       android: "https://play.google.com/store/apps/details?id=com.app.tgtg",
       iphone: "https://apps.apple.com/us/app/too-good-to-go-save-good-food/id1060683933",
-      imagem: "../img/apps/easypark-logo.png"
+      imagem: "../img/apps/too-good-to-go-logo.png"
     }
 
   ];

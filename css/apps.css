@@ -1,62 +1,143 @@
-/* ============================
-   GRID DOS CARDS
-============================ */
-
-.apps-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
+/* ============================================================
+   TEMA — Paleta moderna
+   ============================================================ */
+:root {
+  --color-primary: #1F3A4A;
+  --color-secondary: #C46A4A;
+  --color-accent: #AFC7D9;
+  --color-bg: #F7F4EF;
+  --color-soft: #E8DCC7;
+  --radius: 16px;
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 14px rgba(0,0,0,0.12);
+  --shadow-lg: 0 6px 22px rgba(0,0,0,0.18);
 }
 
+/* ============================================================
+   BASE
+   ============================================================ */
+body {
+  background: var(--color-bg);
+  color: var(--color-primary);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
 
-/* ============================
-   CARD DO APP
-============================ */
+.page-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+}
 
+.apps-intro {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* ============================================================
+   CATEGORIAS
+   ============================================================ */
+.apps-categories {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.category-btn {
+  padding: 10px 18px;
+  background: #eee;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.category-btn:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.category-btn.active {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+/* ============================================================
+   TÍTULO DA CATEGORIA
+   ============================================================ */
+.categoria-atual {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+}
+
+/* ============================================================
+   GRID
+   ============================================================ */
+.apps-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 700px) {
+  .apps-container {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+}
+
+/* ============================================================
+   CARD
+   ============================================================ */
 .app-card {
   background: #fff;
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
   text-align: center;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: 0.3s ease;
 }
 
 .app-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-md);
 }
 
-
-/* ============================
-   IMAGEM DO APP (quadrada grande)
-============================ */
-
+/* ============================================================
+   IMAGEM
+   ============================================================ */
 .app-image img {
   width: 140px;
   height: 140px;
   object-fit: contain;
   margin-bottom: 15px;
+  transition: 0.3s ease;
 }
 
+.app-card:hover img {
+  transform: scale(1.08);
+}
 
-/* ============================
+/* ============================================================
    TÍTULO
-============================ */
-
+   ============================================================ */
 .app-title {
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 10px;
-  color: #333;
+  margin-bottom: 8px;
+  color: var(--color-primary);
 }
 
-
-/* ============================
+/* ============================================================
    DESCRIÇÃO
-============================ */
-
+   ============================================================ */
 .app-desc {
   font-size: 15px;
   color: #555;
@@ -64,78 +145,32 @@
   line-height: 1.4;
 }
 
-
-/* ============================
-   BOTÕES (quadrados com ícones)
-============================ */
-
+/* ============================================================
+   BOTÕES
+   ============================================================ */
 .app-buttons {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .store-btn {
-  width: 140px;
-  height: 84px;
+  width: 60px;
+  height: 60px;
   background: #f2f2f2;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform .2s ease, background .2s ease;
+  transition: 0.3s ease;
+}
+
+.store-btn:hover {
+  background: var(--color-accent);
+  transform: translateY(-4px);
 }
 
 .store-btn img {
   width: 26px;
   height: 26px;
-}
-
-.store-btn:hover {
-  background: #e6e6e6;
-  transform: translateY(-3px);
-}
-
-
-/* ============================
-   BOTÕES DE CATEGORIA
-============================ */
-
-.apps-categories {
-  display: flex;
-  gap: 12px;
-  margin-top: 25px;
-  flex-wrap: wrap;
-}
-
-.category-btn {
-  padding: 10px 18px;
-  background: #eee;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 600;
-  transition: background .2s ease;
-}
-
-.category-btn:hover {
-  background: #ddd;
-}
-
-.category-btn.active {
-  background: #c46b47;
-  color: #fff;
-}
-
-
-/* ============================
-   TÍTULO DA CATEGORIA ATUAL
-============================ */
-
-.categoria-atual {
-  margin-top: 25px;
-  font-size: 22px;
-  font-weight: 700;
-  color: #333;
 }
