@@ -78,14 +78,18 @@ body {
 }
 
 /* ============================================================
-   GRID
+   GRID — Mobile First (1 card por vez)
    ============================================================ */
 .apps-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;   /* 🔥 Agora apenas 1 card por vez no mobile */
   gap: 18px;
+  margin-top: 24px;
 }
 
+/* ============================================================
+   Desktop — múltiplos cards por linha
+   ============================================================ */
 @media (min-width: 700px) {
   .apps-container {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
