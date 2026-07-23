@@ -27,17 +27,29 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.4);
-  color: #fff;
   border: none;
-  font-size: 2rem;
-  padding: 6px 12px;
+  font-size: 1.5rem;
+  width: 48px;          /* largura fixa */
+  height: 48px;         /* altura fixa */
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: 50%;   /* garante formato circular */
+  display: flex;        /* centraliza o ícone dentro */
+  align-items: center;
+  justify-content: center;
+  color: #fff;          /* cor da seta */
 }
 
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
+/* Botão da esquerda → Verde Itália */
+.carousel-btn.prev {
+  left: 10px;
+  background: #009246;  /* verde Itália */
+}
+
+/* Botão da direita → Vermelho Itália */
+.carousel-btn.next {
+  right: 10px;
+  background: #CE2B37;  /* vermelho Itália */
+}
 
 /* Desktop */
 @media (min-width: 768px) {
