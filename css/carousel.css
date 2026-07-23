@@ -1,0 +1,51 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: var(--color-background); /* mesma cor do fundo do site */
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel-track img {
+  width: 100%;          /* ocupa toda a largura do container */
+  height: auto;         /* altura automática para se adaptar ao formato */
+  max-height: 80vh;     /* limita altura para não estourar a tela */
+  flex-shrink: 0;
+  object-fit: contain;  /* adapta ao formato da foto sem cortar */
+  margin: 0 auto;
+}
+
+/* Botões */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* Desktop */
+@media (min-width: 768px) {
+  .carousel {
+    max-width: 800px;
+  }
+
+  .carousel-track img {
+    max-height: 70vh;
+  }
+}
