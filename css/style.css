@@ -340,3 +340,28 @@ footer {
     border-radius: 12px; /* opcional: bordas arredondadas no desktop */
   }
 }
+
+.back-button-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.back-button {
+  display: inline-block;
+  background: #009246; /* Verde Itália */
+  color: var(--warm-white);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.back-button:hover {
+  background: var(--terracotta);
+  color: var(--warm-white);
+  transform: scale(1.05);
+}
+
