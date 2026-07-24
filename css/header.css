@@ -37,34 +37,69 @@ header {
   gap: 24px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+  align-items: center;
 }
 
 .menu-item > a {
-  color: var(--petrol-blue);
+  color: #009246; /* Verde Itália */
   padding: 8px 12px;
   border-radius: 20px;
   transition: 0.25s ease;
   display: block;
+  font-size: 18px;
 }
 .menu-item > a:hover {
   background: var(--cream);
   color: var(--terracotta);
 }
 
-/* SUBMENUS SEMPRE VISÍVEIS */
-.submenu, .submenu-level2 {
-  display: block;
-  margin-left: 20px;
-  padding-left: 10px;
+/* SUBMENUS */
+.submenu {
+  display: flex;
+  gap: 20px;
 }
 
-.submenu a, .submenu-level2 a {
+.submenu-item > a {
+  color: #009246;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  padding-right: 20px;
+}
+
+/* Esconde subníveis inicialmente */
+.submenu-level2 {
+  display: none;
+  margin-top: 8px;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Setas apenas nos itens que possuem submenu-level2 */
+.submenu-item.has-submenu > a::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  color: #009246;
+  transition: transform 0.25s ease;
+}
+
+.submenu-item.has-submenu.open > a::after {
+  content: "▲";
+}
+
+.submenu-item.has-submenu.open > .submenu-level2 {
+  display: block;
+}
+
+.submenu-level2 a {
   display: block;
   padding: 6px 0;
-  color: var(--petrol-blue);
-  font-weight: 400;
+  color: #009246;
+  font-size: 16px;
 }
-.submenu a:hover, .submenu-level2 a:hover {
+.submenu-level2 a:hover {
   color: var(--terracotta);
 }
 
@@ -79,15 +114,19 @@ header {
 @media (max-width: 700px) {
   .menu-toggle { display: block; }
 
-  /* Overlay que embaça o fundo */
-  body.menu-open::before {
-    content: "";
+  body.menu-open { overflow: hidden; }
+
+  .menu-overlay {
+    display: none;
     position: fixed;
-    inset: 0;
-    background: rgba(255,255,255,0.4);
-    backdrop-filter: blur(6px);
-    z-index: 150;
+    top: calc(72px + 60vh);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 180;
+    background: transparent;
   }
+  .menu-overlay.show { display: block; }
 
   .menu {
     display: none;
@@ -97,11 +136,14 @@ header {
     top: 72px;
     left: 0;
     right: 0;
-    background: var(--cream);
-    border-radius: 20px;
+    height: 60vh;
+    background: rgba(255,255,255,0.5);
+    border-radius: 0 0 20px 20px;
     padding: 20px;
     box-shadow: var(--shadow-lg);
     z-index: 200;
+    backdrop-filter: blur(12px);
+    overflow-y: auto;
   }
 
   .menu.show { display: flex; }
@@ -109,10 +151,10 @@ header {
   .menu-item > a {
     background: var(--warm-white);
     border-radius: 20px;
-    padding: 12px;
+    padding: 14px;
     text-align: center;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
     transition: 0.25s ease;
   }
 
@@ -125,15 +167,16 @@ header {
     margin-left: 0;
     border-left: none;
     padding-left: 0;
+    flex-direction: column;
   }
 
   .submenu a, .submenu-level2 a {
     background: var(--warm-white);
     border-radius: 16px;
     margin: 4px 0;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .submenu a:hover, .submenu-level2 a:hover {

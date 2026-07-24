@@ -10,13 +10,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const menuToggle = document.querySelector(".menu-toggle");
       const menu = document.querySelector(".menu");
 
+      // Overlay invisível para mobile
+      const overlay = document.createElement("div");
+      overlay.classList.add("menu-overlay");
+      document.body.appendChild(overlay);
+
       if (menuToggle && menu) {
         menuToggle.addEventListener("click", () => {
-          menu.classList.toggle("show");
-          document.body.classList.toggle("menu-open", menu.classList.contains("show"));
+          const isOpen = menu.classList.toggle("show");
+          document.body.classList.toggle("menu-open", isOpen);
+          overlay.classList.toggle("show", isOpen);
+        });
+
+        overlay.addEventListener("click", () => {
+          menu.classList.remove("show");
+          document.body.classList.remove("menu-open");
+          overlay.classList.remove("show");
         });
       }
-
 
       // Submenus no mobile
       document.querySelectorAll(".menu-item.has-submenu > a").forEach(link => {
@@ -32,9 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
+      // Submenus no desktop (abrir/fechar level2 com setas)
       document.querySelectorAll(".submenu-item.has-submenu > a").forEach(link => {
         link.addEventListener("click", e => {
-          if (window.innerWidth < 700) {
+          if (window.innerWidth >= 701) {
+            e.preventDefault();
+            const parent = link.parentElement;
+            parent.classList.toggle("open");
+          } else {
             e.preventDefault();
             const parent = link.parentElement;
             document.querySelectorAll(".submenu-item.has-submenu").forEach(item => {
