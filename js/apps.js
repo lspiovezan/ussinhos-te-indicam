@@ -57,12 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
       iphone: "https://apps.apple.com/us/app/too-good-to-go-save-good-food/id1060683933",
       imagem: "../img/apps/too-good-to-go-logo.png"
     }
-
   ];
 
   const container = document.querySelector(".apps-container");
 
-  // Gera os cards
+  // Gera os cards dinamicamente
   apps.forEach(app => {
     const card = document.createElement("div");
     card.classList.add("app-card");
@@ -82,14 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
         ${app.descricao}
       </p>
 
-        <div class="app-buttons">
+      <div class="app-buttons">
         <a class="store-btn" href="${app.android}" target="_blank">
             <img src="../img/icons/android.png" alt="Android">
         </a>
         <a class="store-btn" href="${app.iphone}" target="_blank">
             <img src="../img/icons/iphone.svg" alt="iPhone">
         </a>
-        </div>
+      </div>
     `;
 
     container.appendChild(card);
@@ -98,39 +97,28 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ============================
      FILTRO POR CATEGORIA
   ============================ */
-
   const buttons = document.querySelectorAll(".category-btn");
   const cards = document.querySelectorAll(".app-card");
   const categoriaAtual = document.getElementById("categoria-atual");
 
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
-
-      // Remove seleção anterior
       buttons.forEach(b => b.classList.remove("active"));
-
-      // Ativa o botão clicado
       btn.classList.add("active");
 
       const categoria = btn.dataset.category;
-
-      // Atualiza título da categoria
       categoriaAtual.textContent = `Categoria: ${categoria}`;
 
-      // Filtra os cards
       cards.forEach(card => {
         const cat = card.querySelector(".app-category strong").textContent;
-        card.style.display = (cat === categoria) ? "block" : "none";
+        card.style.display = (categoria === "Todos" || cat === categoria) ? "" : "none";
       });
     });
   });
-
-  
 
   /* ============================
      MOSTRAR TUDO AO INICIAR
   ============================ */
   categoriaAtual.textContent = "Todos os apps";
-  cards.forEach(card => card.style.display = "block");
-
+  cards.forEach(card => card.style.display = "");
 });

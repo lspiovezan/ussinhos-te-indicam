@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Apps úteis na Itália · Guia dos Ursinhos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/header.css">
@@ -15,7 +15,7 @@
   <!-- HEADER dinâmico -->
   <script src="../js/header.js"></script>
 
-  <main class="page-content fade-in">
+  <main class="page-content fade-in apps-page">
 
     <h1 class="page-title">Apps úteis na Itália</h1>
 
@@ -24,6 +24,12 @@
       entender rotas e aproveitar melhor sua viagem pela Itália.
     </p>
 
+    <!-- Botões de categoria -->
+    <div class="apps-categories">
+      <button class="category-btn active" data-category="Todos">Todos</button>
+      <button class="category-btn" data-category="Alimentação">Alimentação</button>
+      <button class="category-btn" data-category="Transporte">Transporte</button>
+    </div>
 
     <!-- TÍTULO DA CATEGORIA ATUAL -->
     <h2 id="categoria-atual" class="categoria-atual">Todos os apps</h2>
