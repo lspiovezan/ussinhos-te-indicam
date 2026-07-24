@@ -1,87 +1,39 @@
-/* ============================
-   HEADER BASE
-   ============================ */
-
 header {
   background: var(--warm-white);
   box-shadow: var(--shadow-md);
   display: flex;
-  align-items: flex-start;      /* alinha tudo para cima */
+  align-items: flex-start;
   justify-content: space-between;
   padding: 0 18px;
-  height: 72px;                 /* header pequeno */
+  height: 72px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  overflow: hidden;             /* impede que a logo estoure o header */
 }
 
-/* ============================
-   ESTRUTURA EM 3 COLUNAS
-   ============================ */
-
-.header-left,
-.header-center,
-.header-right {
+.header-left, .header-center, .header-right {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
 }
 
-/* Coluna esquerda: botão sanduíche */
-.header-left {
-  flex: 1;
-}
+.header-left { flex: 1; }
+.header-center { flex: 1; justify-content: center; }
+.header-right { flex: 1; justify-content: flex-end; }
 
-/* Coluna central: logo */
-.header-center {
-  flex: 1;
-  justify-content: center;      /* centraliza horizontalmente */
-}
-
-/* Coluna direita: menu desktop */
-.header-right {
-  flex: 1;
-  justify-content: flex-end;
-}
-
-/* ============================
-   LOGO CENTRALIZADA E ALINHADA PARA CIMA
-   ============================ */
-
-.header-center {
-  display: flex;
-  justify-content: center;     /* centraliza horizontalmente */
-  align-items: center;         /* centraliza verticalmente */
-  height: 72px;                /* altura do header */
-}
-
-/* Logo */
 .header-logo {
-  height: auto;                /* garante que a imagem caiba no header */
-  width: 280px;                 /* mantém proporção original */
-  object-fit: contain;         /* garante que a imagem apareça inteira */
+  width: 280px;
+  object-fit: contain;
   transition: 0.25s ease;
-  margin-top: 0;
 }
-
-.header-logo:hover {
-  transform: scale(1.05);
-}
-
-
-
-/* ============================
-   MENU DESKTOP
-   ============================ */
+.header-logo:hover { transform: scale(1.05); }
 
 .menu {
   display: flex;
   gap: 16px;
 }
-
 .menu-item > a {
   color: var(--petrol-blue);
   font-weight: 500;
@@ -89,95 +41,47 @@ header {
   border-radius: var(--radius-sm);
   transition: 0.25s ease;
 }
-
 .menu-item > a:hover {
   background: var(--cream);
   color: var(--terracotta);
 }
 
-/* ============================
-   SUBMENU NÍVEL 1
-   ============================ */
-
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: var(--warm-white);
-  box-shadow: var(--shadow-md);
-  padding: 8px 0;
-  border-radius: 6px;
-  min-width: 200px;
-}
-
-.menu-item:hover > .submenu {
-  display: block;
-}
-
-/* ============================
-   SUBMENU NÍVEL 2
-   ============================ */
-
-.submenu-item {
-  position: relative;
-}
-
-.submenu-level2 {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  background: var(--warm-white);
-  box-shadow: var(--shadow-md);
-  padding: 8px 0;
-  border-radius: 6px;
-  min-width: 200px;
-}
-
-.submenu-item:hover > .submenu-level2 {
-  display: block;
-}
-
-/* ============================
-   MOBILE
-   ============================ */
+.submenu { display: none; position: absolute; top: 100%; left: 0; }
+.menu-item.open > .submenu { display: block; }
+.submenu-item { position: relative; }
+.submenu-level2 { display: none; position: absolute; top: 0; left: 100%; }
+.submenu-item.open > .submenu-level2 { display: block; }
 
 .menu-toggle {
   font-size: 30px;
   cursor: pointer;
-  display: none;                /* só aparece no mobile */
+  display: none;
 }
 
 @media (max-width: 700px) {
-
-  .menu-toggle {
-    display: block;
-  }
+  .menu-toggle { display: block; }
 
   .menu {
-    display: none;              /* esconde o menu no mobile */
+    display: none;
     flex-direction: column;
     gap: 12px;
     width: 100%;
     margin-top: 12px;
     text-align: center;
+    background: var(--warm-white);
+    box-shadow: var(--shadow-md);
+    border-radius: 6px;
+    padding: 12px 0;
   }
 
-  .menu.show {
-    display: flex;              /* aparece quando clica no sanduíche */
-  }
+  .menu.show { display: flex; }
 
-  .submenu,
-  .submenu-level2 {
+  .submenu, .submenu-level2 {
     position: static;
     box-shadow: none;
     background: transparent;
     padding: 0;
   }
 
-  .submenu a,
-  .submenu-level2 a {
-    padding: 10px;
-  }
+  .submenu a, .submenu-level2 a { padding: 10px; }
 }

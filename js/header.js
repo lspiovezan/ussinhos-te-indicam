@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   const path = window.location.pathname;
   const insideHtml = path.includes("/html/");
 
@@ -9,11 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     depth = afterHtml.split("/").length - 1;
   }
 
-  // CORREÇÃO: sempre sobe +1 nível além do depth
   const prefix = insideHtml ? "../".repeat(depth + 1) : "";
-
   const headerPath = `${prefix}header.html`;
-  const menuPath = `${prefix}js/menu.js`;
 
   fetch(headerPath)
     .then(r => {
@@ -21,32 +17,92 @@ document.addEventListener("DOMContentLoaded", () => {
       return r.text();
     })
     .then(html => {
-
       document.body.insertAdjacentHTML("afterbegin", html);
 
+      // Ajusta links conforme a pasta atual
       document.querySelectorAll("header a").forEach(a => {
         const href = a.getAttribute("href");
         if (!href) return;
 
         if (insideHtml) {
-          a.href = href === "" ? `${prefix}index.html` : `${href}`;
+          // Estamos dentro de /html
+          if (href.startsWith("html/")) {
+            // Já aponta para dentro de /html, não mexe
+            a.href = href;
+          } else {
+            // Link para fora (ex.: index.html), volta uma pasta
+            a.href = `../${href}`;
+          }
         } else {
-          a.href = href === "" ? "index.html" : `html/${href}`;
+          // Estamos na raiz
+          if (href.startsWith("html/")) {
+            // Já começa com html/, mantém
+            a.href = href;
+          } else {
+            // Se não começa com html/, adiciona prefixo html/
+            a.href = href === "" ? "index.html" : `html/${href}`;
+          }
         }
       });
 
-      const toggle = document.querySelector(".menu-toggle");
+      // ============================
+      // LÓGICA DO MENU
+      // ============================
+
+      const menuToggle = document.querySelector(".menu-toggle");
       const menu = document.querySelector(".menu");
 
-      if (toggle && menu) {
-        toggle.addEventListener("click", () => {
+      if (menuToggle && menu) {
+        menuToggle.addEventListener("click", () => {
           menu.classList.toggle("show");
         });
       }
 
-      const script = document.createElement("script");
-      script.src = menuPath;
-      document.body.appendChild(script);
+      // Submenus no mobile
+      document.querySelectorAll(".menu-item.has-submenu > a").forEach(link => {
+        link.addEventListener("click", e => {
+          if (window.innerWidth < 700) {
+            e.preventDefault();
+            const parent = link.parentElement;
+            document.querySelectorAll(".menu-item.has-submenu").forEach(item => {
+              if (item !== parent) item.classList.remove("open");
+            });
+            parent.classList.toggle("open");
+          }
+        });
+      });
+
+      document.querySelectorAll(".submenu-item.has-submenu > a").forEach(link => {
+        link.addEventListener("click", e => {
+          if (window.innerWidth < 700) {
+            e.preventDefault();
+            const parent = link.parentElement;
+            document.querySelectorAll(".submenu-item.has-submenu").forEach(item => {
+              if (item !== parent) item.classList.remove("open");
+            });
+            parent.classList.toggle("open");
+          }
+        });
+      });
+
+      // Submenus no desktop
+      document.querySelectorAll(".menu-item.has-submenu > a").forEach(link => {
+        link.addEventListener("click", e => {
+          if (window.innerWidth >= 700) {
+            e.preventDefault();
+            link.parentElement.classList.toggle("open");
+          }
+        });
+      });
+
+      document.querySelectorAll(".submenu-item.has-submenu > a").forEach(link => {
+        link.addEventListener("click", e => {
+          if (window.innerWidth >= 700) {
+            e.preventDefault();
+            link.parentElement.classList.toggle("open");
+          }
+        });
+      });
     })
     .catch(err => console.error("Erro ao carregar header:", err));
 });
