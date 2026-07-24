@@ -1,8 +1,9 @@
+/* HEADER BASE */
 header {
   background: var(--warm-white);
   box-shadow: var(--shadow-md);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   padding: 0 18px;
   height: 72px;
@@ -10,7 +11,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 200;
 }
 
 .header-left, .header-center, .header-right {
@@ -24,64 +25,119 @@ header {
 .header-right { flex: 1; justify-content: flex-end; }
 
 .header-logo {
-  width: 280px;
+  width: 220px;
   object-fit: contain;
   transition: 0.25s ease;
 }
 .header-logo:hover { transform: scale(1.05); }
 
+/* MENU DESKTOP */
 .menu {
   display: flex;
-  gap: 16px;
+  gap: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
+
 .menu-item > a {
   color: var(--petrol-blue);
-  font-weight: 500;
-  padding: 10px 14px;
-  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  border-radius: 20px;
   transition: 0.25s ease;
+  display: block;
 }
 .menu-item > a:hover {
   background: var(--cream);
   color: var(--terracotta);
 }
 
-.submenu { display: none; position: absolute; top: 100%; left: 0; }
-.menu-item.open > .submenu { display: block; }
-.submenu-item { position: relative; }
-.submenu-level2 { display: none; position: absolute; top: 0; left: 100%; }
-.submenu-item.open > .submenu-level2 { display: block; }
+/* SUBMENUS SEMPRE VISÍVEIS */
+.submenu, .submenu-level2 {
+  display: block;
+  margin-left: 20px;
+  padding-left: 10px;
+}
 
+.submenu a, .submenu-level2 a {
+  display: block;
+  padding: 6px 0;
+  color: var(--petrol-blue);
+  font-weight: 400;
+}
+.submenu a:hover, .submenu-level2 a:hover {
+  color: var(--terracotta);
+}
+
+/* BOTÃO SANDUÍCHE */
 .menu-toggle {
-  font-size: 30px;
+  font-size: 28px;
   cursor: pointer;
   display: none;
 }
 
+/* MOBILE */
 @media (max-width: 700px) {
   .menu-toggle { display: block; }
+
+  /* Overlay que embaça o fundo */
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(6px);
+    z-index: 150;
+  }
 
   .menu {
     display: none;
     flex-direction: column;
     gap: 12px;
-    width: 100%;
-    margin-top: 12px;
-    text-align: center;
-    background: var(--warm-white);
-    box-shadow: var(--shadow-md);
-    border-radius: 6px;
-    padding: 12px 0;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--shadow-lg);
+    z-index: 200;
   }
 
   .menu.show { display: flex; }
 
-  .submenu, .submenu-level2 {
-    position: static;
-    box-shadow: none;
-    background: transparent;
-    padding: 0;
+  .menu-item > a {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.25s ease;
   }
 
-  .submenu a, .submenu-level2 a { padding: 10px; }
+  .menu-item > a:hover {
+    background: var(--terracotta);
+    color: var(--warm-white);
+  }
+
+  .submenu, .submenu-level2 {
+    margin-left: 0;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .submenu a, .submenu-level2 a {
+    background: var(--warm-white);
+    border-radius: 16px;
+    margin: 4px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .submenu a:hover, .submenu-level2 a:hover {
+    background: var(--terracotta);
+    color: var(--warm-white);
+  }
 }
