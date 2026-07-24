@@ -51,6 +51,10 @@
   .bg-lagos .bate-voltas-img {
     background-image: url("../img/lagos.jpg");
   }
+
+  .bg-padua .bate-voltas-img {
+    background-image: url("../img/padua.jpg");
+  }
   
   /* ============================================================
      CARD COMPLETO
