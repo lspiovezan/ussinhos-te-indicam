@@ -365,3 +365,76 @@ footer {
   transform: scale(1.05);
 }
 
+/* Painel principal */
+.panel-compras {
+  padding: 20px;
+}
+
+.titulo-compras {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.descricao-compras {
+  text-align: center;
+  margin-bottom: 40px;
+  
+}
+
+/* Container de cards */
+.container-compras {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Card estilo polaroid */
+.card-compras {
+  background-color: #fff;
+  width: 220px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  transform: rotate(-2deg);
+  transition: transform 0.2s ease;
+}
+
+.card-compras:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* Logo */
+.logo-compras {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Nome da loja */
+.nome-loja-compras {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Texto */
+.texto-compras {
+  font-size: 14px;
+}
+
+/* Efeito polaroid */
+.card-compras::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  width: 90%;
+  height: 15px;
+  background: rgba(0,0,0,0.1);
+  filter: blur(4px);
+  z-index: -1;
+}
+
