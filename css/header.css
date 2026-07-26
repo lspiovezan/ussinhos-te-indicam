@@ -15,6 +15,7 @@ header {
 
 body {
   padding-top: 90px;
+  overflow-x: hidden; /* desativa scroll lateral */
 }
 
 .header-left, .header-center, .header-right {
@@ -28,7 +29,7 @@ body {
 .header-right { flex: 1; justify-content: flex-start; }
 
 .header-logo {
-  width: 180px;
+  width: 160px;
   object-fit: contain;
   transition: 0.25s ease;
 }
@@ -37,23 +38,31 @@ body {
 /* MENU DESKTOP */
 .menu {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   align-items: center;
 }
 
-.menu-item > a {
-  color: #009246;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: 0.25s ease;
+.menu-item > a,
+.submenu-item > a,
+.submenu-level2 > a {
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
   display: block;
-  font-size: 18px;
+  font-size: 16px;
+  text-decoration: none;
 }
-.menu-item > a:hover {
+
+.menu-item > a:hover,
+.submenu-item > a:hover,
+.submenu-level2 > a:hover {
+  background: var(--cream);
   color: var(--terracotta);
 }
+
 .menu-item.active > a {
   color: var(--terracotta);
   border-bottom: 2px solid var(--terracotta);
@@ -68,6 +77,7 @@ body {
 
   body {
     padding-top: 72px;
+    overflow-x: hidden; /* garante que não role lateralmente */
   }
 
   .header-left {
@@ -76,15 +86,16 @@ body {
   }
 
   .header-center {
-    flex: 1;                  /* ocupa toda largura disponível */
+    flex: 1;
     display: flex;
-    justify-content: center;  /* centraliza logo */
+    justify-content: center;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* garante centralização absoluta */
+    transform: translateX(-50%);
   }
 
   .header-logo {
+    width: 140px;
     margin: 0 auto;
   }
 
@@ -105,53 +116,66 @@ body {
     bottom: 0;
     z-index: 180;
     background: rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
-  .menu-overlay.show { display: block; }
+  .menu-overlay.show { 
+    display: block; 
+    opacity: 1; 
+  }
 
   .menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     position: fixed;
     top: 72px;
     left: 0;
-    width: 80%;
-    height: 60vh;
+    width: 50%;              /* ocupa metade da tela */
+    max-width: 50%;          /* nunca ultrapassa metade */
+    height: 70vh;
     background: #ffffff;
-    padding: 20px;
+    padding: 8px;
     box-shadow: var(--shadow-lg);
     z-index: 200;
     overflow-y: auto;
+    overflow-x: hidden;      /* bloqueia scroll lateral dentro do menu */
     align-items: flex-start;
+    border-radius: 0 12px 12px 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
   }
 
-  .menu.show { display: flex; }
+  .menu.show { 
+    transform: translateX(0); 
+  }
 
-  /* Todos os itens ocupam uma linha */
+  /* Itens compactos dentro dos 50% */
   .menu-item,
   .submenu-item,
   .submenu-level2 {
     display: block;
-    width: 100%;
-    line-height: 1.6;
-    padding: 14px 12px;
-    margin: 0;
+    width: calc(100% - 16px); /* reduz largura interna */
+    line-height: 1.4;
+    padding: 6px 10px;        /* padding menor */
+    margin: 4px auto;         /* espaçamento mínimo */
     text-align: left;
-    font-size: 16px;
-    font-weight: 600;
-    color: #009246;
-    background: #ffffff;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
+    font-size: 14px;          /* fonte levemente menor */
+    font-weight: 500;
+    color: #333;
+    background: var(--cream);
+    border-radius: 4px;
   }
 
   /* Indentação por nível */
-  .menu-item { padding-left: 12px; }
-  .submenu-item { padding-left: 28px; }
-  .submenu-level2 { padding-left: 44px; }
+  .menu-item { padding-left: 10px; }
+  .submenu-item { padding-left: 20px; }
+  .submenu-level2 { padding-left: 30px; }
 
   .menu-item:hover,
   .submenu-item:hover,
   .submenu-level2:hover {
-    background: var(--cream);
-    color: var(--terracotta);
+    background: var(--terracotta);
+    color: #fff;
   }
 }
