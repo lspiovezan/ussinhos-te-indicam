@@ -13,20 +13,21 @@
 /* Escopo apenas para a página de apps */
 .apps-page {
   background: var(--color-bg);
-  color: var(--color-primary);
-  font-family: "Inter", sans-serif;
+  color: var(--color-green-italy); /* verde Itália */
+  font-family: "Roboto", sans-serif; /* fonte padrão */
 }
 
 .apps-page .page-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto", sans-serif;
   font-size: 32px;
   margin-bottom: 10px;
-  color: var(--color-primary);
+  color: var(--color-green-italy);
+  text-align: center;
 }
 
 .apps-page .apps-intro {
   font-size: 16px;
-  color: #555;
+  color: var(--color-green-italy);
   margin-bottom: 25px;
 }
 
@@ -39,17 +40,19 @@
 
 .apps-page .category-btn {
   padding: 10px 18px;
-  background: #eee;
+  background: var(--color-soft);
   border-radius: 10px;
   border: none;
   cursor: pointer;
   font-size: 15px;
   font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  color: var(--color-green-italy);
   transition: 0.3s ease;
 }
 
 .apps-page .category-btn:hover {
-  background: var(--color-accent);
+  background: var(--color-secondary);
   color: #fff;
 }
 
@@ -62,7 +65,8 @@
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 20px;
-  color: var(--color-primary);
+  color: var(--color-green-italy);
+  font-family: "Roboto", sans-serif;
 }
 
 /* Mobile first: 1 card por vez */
@@ -88,6 +92,8 @@
   box-shadow: var(--shadow-sm);
   text-align: center;
   transition: 0.3s ease;
+  font-family: "Roboto", sans-serif;
+  color: var(--color-green-italy);
 }
 
 .apps-page .app-card:hover {
@@ -111,14 +117,16 @@
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
-  color: var(--color-primary);
+  color: var(--color-green-italy);
+  font-family: "Roboto", sans-serif;
 }
 
 .apps-page .app-desc {
   font-size: 15px;
-  color: #555;
+  color: var(--color-green-italy);
   margin-bottom: 18px;
   line-height: 1.4;
+  font-family: "Roboto", sans-serif;
 }
 
 .apps-page .app-buttons {
@@ -130,7 +138,7 @@
 .apps-page .store-btn {
   width: 60px;
   height: 60px;
-  background: #f2f2f2;
+  background: var(--color-soft);
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -139,7 +147,7 @@
 }
 
 .apps-page .store-btn:hover {
-  background: var(--color-accent);
+  background: var(--color-secondary);
   transform: translateY(-4px);
 }
 

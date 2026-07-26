@@ -2,49 +2,80 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Apps úteis na Itália · Guia dos Ursinhos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <title>Apps Úteis</title>
+
+  <!-- CSS global + header + apps -->
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/apps.css">
-  
 </head>
+<body class="apps-page">
 
-<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <span class="menu-toggle">☰</span>
+    </div>
 
-  <!-- HEADER dinâmico -->
-  <script src="../js/header.js"></script>
+    <div class="header-center">
+      <a href="../index.html" class="home-button">
+        <img class="header-logo" src="../img/logo.png" alt="Ursinhos te indicam">
+      </a>
+    </div>
 
-  <main class="page-content fade-in apps-page">
+    <div class="header-right">
+      <nav class="menu">
+        <div class="menu-item"><a href="../index.html">Boas vindas</a></div>
+        <div class="menu-item"><a href="dicas-italia.html">Dicas gerais da Itália</a></div>
+        <div class="menu-item"><a href="preparacao.html">Antes de Fechar a Mala</a></div>
 
-    <h1 class="page-title">Apps úteis na Itália</h1>
+        <div class="menu-item"><a href="javascript:void(0)">Na Itália</a></div>
+        <div class="submenu-item"><a href="javascript:void(0)">Sua chegada</a></div>
+        <div class="submenu-level2"><a href="transporte.html">Transporte</a></div>
+        <div class="submenu-level2"><a href="chegando-ate-nos.html">Chegando até nós</a></div>
 
-    <p class="apps-intro">
-      Aqui estão os aplicativos essenciais para se locomover, comprar passagens,
-      entender rotas e aproveitar melhor sua viagem pela Itália.
-    </p>
+        <div class="submenu-item"><a href="javascript:void(0)">Milão</a></div>
+        <div class="submenu-level2"><a href="milao-pontos-turisticos.html">Pontos turísticos</a></div>
+        <div class="submenu-level2"><a href="milao-culinaria.html">Culinária</a></div>
+        <div class="submenu-level2"><a href="milao-compras.html">Compras</a></div>
+        <div class="submenu-level2"><a href="milao-religiosa.html">Milão religiosa</a></div>
 
-    <!-- Botões de categoria -->
+        <div class="submenu-item"><a href="javascript:void(0)">Outros destinos</a></div>
+        <div class="submenu-level2"><a href="bate-voltas.html">Bate-voltas</a></div>
+        <div class="submenu-level2"><a href="italia.html">Itália</a></div>
+        <div class="submenu-level2"><a href="fora-da-italia.html">Fora da Itália</a></div>
+
+        <div class="menu-item"><a href="voltando-ao-brasil.html">Voltando ao Brasil</a></div>
+        <div class="menu-item"><a href="mapa.html">Mapa</a></div>
+        <div class="menu-item"><a href="apps-uteis.html">Apps úteis</a></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO DA PÁGINA DE APPS -->
+  <main>
+    <h1 class="page-title">Apps Úteis</h1>
+    <p class="apps-intro">Selecione uma categoria para filtrar os aplicativos recomendados para sua viagem.</p>
+
     <div class="apps-categories">
       <button class="category-btn active" data-category="Todos">Todos</button>
       <button class="category-btn" data-category="Alimentação">Alimentação</button>
       <button class="category-btn" data-category="Transporte">Transporte</button>
     </div>
 
-    <!-- TÍTULO DA CATEGORIA ATUAL -->
     <h2 id="categoria-atual" class="categoria-atual">Todos os apps</h2>
 
-    <!-- LISTA DE APPS (gerada via JS) -->
-    <div id="apps-list" class="apps-container"></div>
-
+    <div class="apps-container">
+      <!-- Os cards serão gerados dinamicamente pelo apps.js -->
+    </div>
   </main>
 
-  <!-- FOOTER dinâmico -->
-  <script src="../js/footer.js"></script>
-
-  <!-- JS da página -->
+  <!-- JS do header -->
+  <script src="../js/header.js"></script>
+  <!-- JS da página de apps -->
   <script src="../js/apps.js"></script>
-
 </body>
 </html>
