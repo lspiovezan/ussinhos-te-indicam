@@ -75,6 +75,19 @@ body {
     left: 16px;
   }
 
+  .header-center {
+    flex: 1;                  /* ocupa toda largura disponível */
+    display: flex;
+    justify-content: center;  /* centraliza logo */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* garante centralização absoluta */
+  }
+
+  .header-logo {
+    margin: 0 auto;
+  }
+
   .menu-toggle { 
     font-size: 28px;
     cursor: pointer;
