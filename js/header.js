@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const menuToggle = document.querySelector(".menu-toggle");
       const menu = document.querySelector(".menu");
 
-      // Overlay invisível para mobile
       const overlay = document.createElement("div");
       overlay.classList.add("menu-overlay");
       document.body.appendChild(overlay);
@@ -28,38 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
           overlay.classList.remove("show");
         });
       }
-
-      // Submenus no mobile
-      document.querySelectorAll(".menu-item.has-submenu > a").forEach(link => {
-        link.addEventListener("click", e => {
-          if (window.innerWidth < 700) {
-            e.preventDefault();
-            const parent = link.parentElement;
-            document.querySelectorAll(".menu-item.has-submenu").forEach(item => {
-              if (item !== parent) item.classList.remove("open");
-            });
-            parent.classList.toggle("open");
-          }
-        });
-      });
-
-      // Submenus no desktop (abrir/fechar level2 com setas)
-      document.querySelectorAll(".submenu-item.has-submenu > a").forEach(link => {
-        link.addEventListener("click", e => {
-          if (window.innerWidth >= 701) {
-            e.preventDefault();
-            const parent = link.parentElement;
-            parent.classList.toggle("open");
-          } else {
-            e.preventDefault();
-            const parent = link.parentElement;
-            document.querySelectorAll(".submenu-item.has-submenu").forEach(item => {
-              if (item !== parent) item.classList.remove("open");
-            });
-            parent.classList.toggle("open");
-          }
-        });
-      });
     })
     .catch(err => console.error("Erro ao carregar header:", err));
 });

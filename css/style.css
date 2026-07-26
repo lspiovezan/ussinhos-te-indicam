@@ -365,6 +365,13 @@ footer {
   transform: scale(1.05);
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 20px;
+}
+
 /* Painel principal */
 .panel-compras {
   padding: 20px;
@@ -373,12 +380,13 @@ footer {
 .titulo-compras {
   text-align: center;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .descricao-compras {
   text-align: center;
   margin-bottom: 40px;
-  
+  color: #555;
 }
 
 /* Container de cards */
@@ -399,12 +407,12 @@ footer {
   border-radius: 8px;
   text-align: center;
   position: relative;
-  transform: rotate(-2deg);
   transition: transform 0.2s ease;
 }
 
+/* Hover apenas com leve zoom */
 .card-compras:hover {
-  transform: rotate(0deg) scale(1.05);
+  transform: scale(1.05);
 }
 
 /* Logo */
@@ -418,11 +426,13 @@ footer {
 .nome-loja-compras {
   font-size: 18px;
   margin: 10px 0;
+  color: #444;
 }
 
 /* Texto */
 .texto-compras {
   font-size: 14px;
+  color: #666;
 }
 
 /* Efeito polaroid */
@@ -437,4 +447,3 @@ footer {
   filter: blur(4px);
   z-index: -1;
 }
-

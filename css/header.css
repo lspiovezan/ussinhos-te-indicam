@@ -4,14 +4,17 @@ header {
   box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 18px;
-  height: 72px;
+  padding: 0 24px;
+  height: 90px;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 200;
+}
+
+body {
+  padding-top: 90px;
 }
 
 .header-left, .header-center, .header-right {
@@ -20,12 +23,12 @@ header {
   height: 100%;
 }
 
-.header-left { flex: 1; }
-.header-center { flex: 1; justify-content: center; }
-.header-right { flex: 1; justify-content: flex-end; }
+.header-left { flex: 0; }
+.header-center { flex: 0; }
+.header-right { flex: 1; justify-content: flex-start; }
 
 .header-logo {
-  width: 220px;
+  width: 180px;
   object-fit: contain;
   transition: 0.25s ease;
 }
@@ -34,153 +37,108 @@ header {
 /* MENU DESKTOP */
 .menu {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   align-items: center;
 }
 
 .menu-item > a {
-  color: #009246; /* Verde Itália */
+  color: #009246;
   padding: 8px 12px;
-  border-radius: 20px;
+  border-radius: 4px;
   transition: 0.25s ease;
   display: block;
   font-size: 18px;
 }
 .menu-item > a:hover {
-  background: var(--cream);
   color: var(--terracotta);
 }
-
-/* SUBMENUS */
-.submenu {
-  display: flex;
-  gap: 20px;
-}
-
-.submenu-item > a {
-  color: #009246;
-  font-size: 18px;
-  font-weight: 500;
-  position: relative;
-  padding-right: 20px;
-}
-
-/* Esconde subníveis inicialmente */
-.submenu-level2 {
-  display: none;
-  margin-top: 8px;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-/* Setas apenas nos itens que possuem submenu-level2 */
-.submenu-item.has-submenu > a::after {
-  content: "▼";
-  position: absolute;
-  right: 0;
-  font-size: 12px;
-  color: #009246;
-  transition: transform 0.25s ease;
-}
-
-.submenu-item.has-submenu.open > a::after {
-  content: "▲";
-}
-
-.submenu-item.has-submenu.open > .submenu-level2 {
-  display: block;
-}
-
-.submenu-level2 a {
-  display: block;
-  padding: 6px 0;
-  color: #009246;
-  font-size: 16px;
-}
-.submenu-level2 a:hover {
+.menu-item.active > a {
   color: var(--terracotta);
-}
-
-/* BOTÃO SANDUÍCHE */
-.menu-toggle {
-  font-size: 28px;
-  cursor: pointer;
-  display: none;
+  border-bottom: 2px solid var(--terracotta);
 }
 
 /* MOBILE */
 @media (max-width: 700px) {
-  .menu-toggle { display: block; }
+  header {
+    height: 72px;
+    justify-content: center;
+  }
+
+  body {
+    padding-top: 72px;
+  }
+
+  .header-left {
+    position: absolute;
+    left: 16px;
+  }
+
+  .menu-toggle { 
+    font-size: 28px;
+    cursor: pointer;
+    display: block;
+  }
 
   body.menu-open { overflow: hidden; }
 
   .menu-overlay {
     display: none;
     position: fixed;
-    top: calc(72px + 60vh);
+    top: 72px;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 180;
-    background: transparent;
+    background: rgba(0,0,0,0.3);
   }
   .menu-overlay.show { display: block; }
 
   .menu {
     display: none;
     flex-direction: column;
-    gap: 12px;
     position: fixed;
     top: 72px;
     left: 0;
-    right: 0;
+    width: 80%;
     height: 60vh;
-    background: rgba(255,255,255,0.5);
-    border-radius: 0 0 20px 20px;
+    background: #ffffff;
     padding: 20px;
     box-shadow: var(--shadow-lg);
     z-index: 200;
-    backdrop-filter: blur(12px);
     overflow-y: auto;
+    align-items: flex-start;
   }
 
   .menu.show { display: flex; }
 
-  .menu-item > a {
-    background: var(--warm-white);
-    border-radius: 20px;
-    padding: 14px;
-    text-align: center;
-    font-size: 20px;
+  /* Todos os itens ocupam uma linha */
+  .menu-item,
+  .submenu-item,
+  .submenu-level2 {
+    display: block;
+    width: 100%;
+    line-height: 1.6;
+    padding: 14px 12px;
+    margin: 0;
+    text-align: left;
+    font-size: 16px;
     font-weight: 600;
-    transition: 0.25s ease;
+    color: #009246;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
   }
 
-  .menu-item > a:hover {
-    background: var(--terracotta);
-    color: var(--warm-white);
-  }
+  /* Indentação por nível */
+  .menu-item { padding-left: 12px; }
+  .submenu-item { padding-left: 28px; }
+  .submenu-level2 { padding-left: 44px; }
 
-  .submenu, .submenu-level2 {
-    margin-left: 0;
-    border-left: none;
-    padding-left: 0;
-    flex-direction: column;
-  }
-
-  .submenu a, .submenu-level2 a {
-    background: var(--warm-white);
-    border-radius: 16px;
-    margin: 4px 0;
-    padding: 12px;
-    text-align: center;
-    font-size: 18px;
-  }
-
-  .submenu a:hover, .submenu-level2 a:hover {
-    background: var(--terracotta);
-    color: var(--warm-white);
+  .menu-item:hover,
+  .submenu-item:hover,
+  .submenu-level2:hover {
+    background: var(--cream);
+    color: var(--terracotta);
   }
 }
