@@ -1,0 +1,107 @@
+/* ============================================================
+   FOOTER — Versão final ajustada
+   ============================================================ */
+
+footer {
+  background: linear-gradient(
+    135deg,
+    rgba(0,146,70,0.08) 0%,
+    rgba(247,244,239,0.35) 40%,
+    rgba(206,43,55,0.08) 100%
+  );
+  backdrop-filter: blur(4px);
+
+  padding: 16px 10px;
+  margin-top: 30px;
+
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 -3px 8px rgba(0,0,0,0.06);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* garante alinhamento perfeito */
+  justify-content: center;
+}
+
+/* Logo — maior e com destaque */
+footer .footer-logo {
+  width: 200px; /* destaque total */
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 8px; /* botão fica colado abaixo */
+  transition: transform 0.3s ease;
+}
+
+footer .footer-logo:hover {
+  transform: scale(1.06);
+}
+
+/* Texto removido */
+footer p {
+  display: none;
+}
+
+/* Botão de sair — menor e alinhado */
+#logout-btn {
+  background: var(--color-green-italy);
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px; /* menor */
+  font-weight: 600;
+
+  padding: 4px 12px; /* altura reduzida */
+  border: none;
+  border-radius: 14px; /* menor */
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: var(--shadow-sm);
+
+  margin-top: 6px; /* distância perfeita do logo */
+}
+
+#logout-btn:hover {
+  background: var(--color-secondary);
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 700px) {
+  footer {
+    padding: 18px 8px;
+  }
+
+  footer .footer-logo {
+    width: 170px;
+  }
+
+  #logout-btn {
+    width: auto;
+    padding: 4px 12px;
+  }
+}
+
+/* ============================================================
+   DESKTOP
+   ============================================================ */
+@media (min-width: 700px) {
+  footer {
+    padding: 20px 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0,146,70,0.12) 0%,
+      rgba(247,244,239,0.45) 40%,
+      rgba(206,43,55,0.12) 100%
+    );
+  }
+
+  footer .footer-logo {
+    width: 220px; /* ainda mais destaque no desktop */
+  }
+
+  #logout-btn {
+    padding: 5px 14px;
+  }
+}
