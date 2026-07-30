@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Escolhe o footer correto
   const footerPath = insideHtml
     ? "../html/footer-pages.html"
-    : "footer-index.html";
+    : "../footer-index.html";
 
   // Evita duplicação: só carrega se ainda não existe footer
   if (!document.querySelector("footer")) {
