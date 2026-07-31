@@ -444,3 +444,77 @@ footer {
   filter: blur(4px);
   z-index: -1;
 }
+/* ============================================================
+   MEDIA QUERIES — Desktop (dobro do tamanho, títulos centralizados)
+   ============================================================ */
+@media (min-width: 1200px) {
+  /* Títulos maiores e centralizados */
+  h1 {
+    font-size: clamp(3.6rem, 8vw, 5rem); /* dobro */
+    text-align: center;
+    margin: 32px auto;
+  }
+
+  h2 {
+    font-size: clamp(2.8rem, 6vw, 4rem); /* dobro */
+    text-align: center;
+    margin: 28px auto;
+  }
+
+  h3 {
+    font-size: clamp(2.4rem, 5vw, 3rem); /* dobro */
+    text-align: center;
+    margin: 24px auto;
+  }
+
+  /* Textos e listas maiores, alinhados à esquerda */
+  p {
+    font-size: 2rem;       /* dobro */
+    line-height: 2;        /* espaçamento maior */
+    text-align: left;
+    margin: 20px auto;
+    max-width: 1000px;     /* largura confortável */
+  }
+
+  li {
+    font-size: 1.8rem;     /* dobro */
+    line-height: 1.9;
+    text-align: left;
+    margin: 16px auto;
+    max-width: 900px;
+  }
+
+  a {
+    font-size: 1.6rem;     /* dobro */
+    text-align: left;
+    display: inline-block;
+    margin: 10px auto;
+  }
+
+  /* Header maior */
+  header {
+    height: 120px;         /* dobro */
+    padding: 0 48px;
+    justify-content: flex-start;
+  }
+
+  .header-logo {
+    width: 280px;          /* dobro */
+  }
+
+  .menu-toggle {
+    font-size: 56px;       /* dobro */
+  }
+
+  /* Menu lateral mais largo e espaçoso */
+  .menu {
+    max-width: 640px;      /* dobro */
+    padding: 24px;
+  }
+
+  .menu-item > a {
+    font-size: 2rem;       /* dobro */
+    padding: 20px;
+    text-align: left;
+  }
+}
