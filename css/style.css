@@ -260,7 +260,7 @@ footer {
 /* ============================================================
    MEDIA QUERIES — Desktop
    ============================================================ */
-@media (min-width: 700px) {
+@media (min-width: 1200px) {
   .grid, .apps-container, .bate-voltas-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 22px;
@@ -342,7 +342,7 @@ footer {
   object-fit: cover;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .full-width-image {
     width: 33%;
     margin: 0 auto;
