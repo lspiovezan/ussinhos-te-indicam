@@ -42,7 +42,7 @@
       <button id="toggle-password" aria-label="Mostrar senha">👁️</button>
     </div>
     <button id="password-btn">Entrar</button>
-    <div id="password-error">Senha incorreta. Tente novamente.</div>
+    <div id="password-error" style="display:none;">Senha incorreta. Tente novamente.</div>
   </div>
 </div>
 
@@ -94,14 +94,20 @@
   const error = document.getElementById("password-error");
   const toggle = document.getElementById("toggle-password");
 
-  if (localStorage.getItem("ursinhosAuth") === "true") {
+  // Bloqueia tudo se não estiver autenticado
+  if (localStorage.getItem("ursinhosAuth") !== "true") {
+    document.body.classList.add("locked");
+  } else {
     overlay.style.display = "none";
   }
 
   btn.addEventListener("click", () => {
+    error.style.display = "none";
+
     if (input.value === "Milao_dos_Ussinhos") {
       overlay.style.display = "none";
       localStorage.setItem("ursinhosAuth", "true");
+      document.body.classList.remove("locked");
     } else {
       error.style.display = "block";
     }
@@ -118,6 +124,27 @@
     } else {
       input.type = "password";
       toggle.textContent = "👁️";
+    }
+  });
+
+  // Bloqueio de ESC (mantido)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // F12 liberado — removido daqui
+  // Bloqueio apenas de Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
+  document.addEventListener("keydown", (e) => {
+    if (
+      (e.ctrlKey && e.shiftKey && e.key === "I") ||
+      (e.ctrlKey && e.shiftKey && e.key === "J") ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+      return false;
     }
   });
 </script>
