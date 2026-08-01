@@ -1,4 +1,7 @@
-/* HEADER BASE - padrão mobile */
+/* ============================================================
+   HEADER BASE - padrão mobile
+   ============================================================ */
+
 header {
   background: var(--warm-white);
   box-shadow: var(--shadow-md);
@@ -26,10 +29,20 @@ body {
 
 .header-left { position: absolute; left: 16px; }
 .header-center { flex: 1; justify-content: center; }
-.header-logo { width: 140px; transition: 0.25s ease; }
-.header-logo:hover { transform: scale(1.05); }
 
-/* ÍCONE DO MENU SANDUÍCHE */
+.header-logo {
+  width: 140px;
+  transition: 0.25s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   ÍCONE DO MENU SANDUÍCHE
+   ============================================================ */
+
 .menu-toggle {
   width: 32px;
   height: 24px;
@@ -74,9 +87,10 @@ body.menu-open .menu-toggle::after {
   background: #009246; /* verde */
 }
 
-body.menu-open { overflow: hidden; }
+/* ============================================================
+   OVERLAY
+   ============================================================ */
 
-/* Overlay */
 .menu-overlay {
   display: none;
   position: fixed;
@@ -89,12 +103,16 @@ body.menu-open { overflow: hidden; }
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-.menu-overlay.show { 
-  display: block; 
-  opacity: 1; 
+
+.menu-overlay.show {
+  display: block;
+  opacity: 1;
 }
 
-/* MENU LATERAL - começa SEMPRE fechado */
+/* ============================================================
+   MENU LATERAL
+   ============================================================ */
+
 .menu {
   display: none;
   flex-direction: column;
@@ -118,45 +136,72 @@ body.menu-open { overflow: hidden; }
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* estado aberto */
-.menu.show { 
+.menu.show {
   display: flex;
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Itens uniformes */
-.menu-item,
-.submenu-item,
-.submenu-level2 {
-  display: block;
-  width: calc(100% - 16px);
-  line-height: 1.4;
-  padding: 6px 10px;
-  margin: 4px auto;
-  text-align: left;
-  font-size: 14px;
-  font-weight: 500;
-  color: #009246;
-  background: var(--cream);
-  border-radius: 6px;
+/* ============================================================
+   LINKS SEM SUBLINHADO
+   ============================================================ */
+
+.menu a {
+  text-decoration: none !important;
+  color: var(--color-green-italy);
 }
 
-.menu-item { padding-left: 12px; }
-.submenu-item { padding-left: 24px; }
-.submenu-level2 { padding-left: 36px; }
+/* ============================================================
+   TÍTULOS (h2 e h3)
+   ============================================================ */
 
-.menu-item:hover,
-.submenu-item:hover,
-.submenu-level2:hover {
+.menu h2,
+.menu h3 {
+  color: #CE2B37; /* vermelho Itália */
+  font-weight: 800;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  padding-left: 0; /* voltam para a esquerda */
+}
+
+.menu h2 {
+  font-size: 22px; /* maior */
+}
+
+.menu h3 {
+  font-size: 18px;
+}
+
+/* ============================================================
+   MENU-ITEM (inclui antigos submenu-item)
+   ============================================================ */
+
+.menu-item {
+  background: var(--cream);
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-weight: 700;
+  color: var(--color-green-italy);
+  margin-top: 12px;
+}
+
+/* Hierarquia visual: itens internos mais à direita */
+.menu-item.indent {
+  padding-left: 40px;
+}
+
+/* Hover */
+.menu-item:hover {
   background: var(--terracotta);
   color: #fff;
 }
 
-/* ============================
-   DOBRO PARA DESKTOP (>=1200px)
-   ============================ */
+/* ============================================================
+   DESKTOP — dobro do tamanho
+   ============================================================ */
+
 @media (min-width: 1200px) {
+
   header {
     height: 144px;
     padding: 0 48px;
@@ -179,16 +224,22 @@ body.menu-open { overflow: hidden; }
     border-radius: 0 24px 24px 0;
   }
 
-  .menu-item,
-  .submenu-item,
-  .submenu-level2 {
-    font-size: 28px;
-    padding: 12px 20px;
-    margin: 8px auto;
-    border-radius: 12px;
+  .menu-item {
+    padding: 28px 40px;
+    margin-top: 24px;
+    border-radius: 20px;
+    font-size: 32px;
   }
 
-  .menu-item { padding-left: 24px; }
-  .submenu-item { padding-left: 48px; }
-  .submenu-level2 { padding-left: 72px; }
+  .menu-item.indent {
+    padding-left: 80px;
+  }
+
+  .menu h2 {
+    font-size: 36px;
+  }
+
+  .menu h3 {
+    font-size: 30px;
+  }
 }
