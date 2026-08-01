@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.appendChild(overlay);
 
       if (menuToggle && menu) {
-        menu.classList.remove("show"); // começa fechado
+
+        menu.classList.remove("show"); // garante fechado
 
         menuToggle.addEventListener("click", () => {
           const isOpen = menu.classList.toggle("show");
