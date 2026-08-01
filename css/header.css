@@ -29,14 +29,54 @@ body {
 .header-logo { width: 140px; transition: 0.25s ease; }
 .header-logo:hover { transform: scale(1.05); }
 
-.menu-toggle { 
-  font-size: 28px;
+/* ÍCONE DO MENU SANDUÍCHE */
+.menu-toggle {
+  width: 32px;
+  height: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
-  display: block;
+}
+
+.menu-toggle::before,
+.menu-toggle::after,
+.menu-toggle div {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #333;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle::before { top: 0; }
+.menu-toggle div { top: 10px; }
+.menu-toggle::after { bottom: 0; }
+
+/* Ícone em pé + cores da Itália quando menu abre */
+body.menu-open .menu-toggle {
+  transform: rotate(90deg);
+}
+
+body.menu-open .menu-toggle::before {
+  background: #CE2B37; /* vermelho */
+}
+
+body.menu-open .menu-toggle div {
+  background: #ffffff; /* branco */
+}
+
+body.menu-open .menu-toggle::after {
+  background: #009246; /* verde */
 }
 
 body.menu-open { overflow: hidden; }
 
+/* Overlay */
 .menu-overlay {
   display: none;
   position: fixed;
@@ -56,7 +96,7 @@ body.menu-open { overflow: hidden; }
 
 /* MENU LATERAL - começa SEMPRE fechado */
 .menu {
-  display: none; /* ESSENCIAL */
+  display: none;
   flex-direction: column;
   position: fixed;
   top: 72px;
@@ -80,7 +120,7 @@ body.menu-open { overflow: hidden; }
 
 /* estado aberto */
 .menu.show { 
-  display: flex; /* ESSENCIAL */
+  display: flex;
   opacity: 1;
   transform: translateX(0);
 }
@@ -128,7 +168,7 @@ body.menu-open { overflow: hidden; }
 
   .header-left { left: 32px; }
   .header-logo { width: 280px; }
-  .menu-toggle { font-size: 56px; }
+  .menu-toggle { width: 64px; height: 48px; }
 
   .menu {
     top: 144px;
