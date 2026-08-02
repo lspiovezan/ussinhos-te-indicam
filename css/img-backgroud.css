@@ -63,7 +63,26 @@
   .bg-florenca .bate-voltas-img {
     background-image: url("../img/florenca.jpg");
   }
+  
+  .bg-bolonha .bate-voltas-img {
+    background-image: url("../img/bolonha.jpg");
+  }
+  
+  .bg-assis .bate-voltas-img {
+    background-image: url("../img/assis.jpg");
+  }
 
+  .bg-cassia .bate-voltas-img {
+    background-image: url("../img/cassia.jpg");
+  }
+
+  .bg-perugia .bate-voltas-img {
+    background-image: url("../img/perugia.jpg");
+  }
+
+  .bg-arezzo .bate-voltas-img {
+    background-image: url("../img/arezzo.jpg");
+  }
   
   /* ============================================================
      CARD COMPLETO

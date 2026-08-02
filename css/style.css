@@ -568,3 +568,48 @@ body.locked #password-overlay {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ============================================================
+   MEDIA QUERY — Telas maiores que 700px
+   ============================================================ */
+@media (min-width: 700px) {
+  p {
+    font-size: 1.5em; /* aumenta ~50% */
+  }
+}
+
+/* ============================================================
+   TABELAS — Vocabulário
+   ============================================================ */
+.vocab-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.vocab-table th,
+.vocab-table td {
+  border: 1px solid #ddd; /* borda cinza clara */
+  padding: 12px;
+  text-align: center;
+}
+
+.vocab-table thead tr {
+  background-color: var(--color-green-italy); /* verde Itália */
+  color: #fff; /* texto branco para contraste */
+}
+
+.vocab-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* alterna linhas para melhor leitura */
+}
+
+/* ============================================================
+   MEDIA QUERY — Desktop (centralizado, largura igual ao texto)
+   ============================================================ */
+@media (min-width: 1200px) {
+  .vocab-table {
+    max-width: 1000px;   /* mesma largura do texto */
+    margin: 20px auto;   /* centraliza */
+  }
+}
