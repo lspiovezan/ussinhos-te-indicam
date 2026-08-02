@@ -6,28 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-
-  <style>
-    /* Ajuste direto para o título */
-    h1 {
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-      text-align: center;
-      word-wrap: break-word;
-    }
-    /* Lista flexível */
-    .lista-guia {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      padding: 0;
-      list-style: none;
-    }
-    .lista-guia li {
-      flex: 1 1 200px;
-      text-align: center;
-    }
-  </style>
 </head>
 
 <body>
@@ -56,6 +34,7 @@
     Se você chegou até aqui, é porque está vindo nos visitar na Itália e isso já enche nosso coração de alegria.
     <br><br>Abrir nossa casa e compartilhar o nosso dia a dia com pessoas queridas é uma das partes mais especiais de viver em outro país.
   </p>
+
   <br><img class="full-width-image" src="img/Duomo-Le-e-Fe.png" alt="Duomo de Milão com o Lê e a Fê">
 
   <p>
@@ -86,6 +65,7 @@
 
 <!-- Footer padrão -->
 <script src="js/footer.js"></script>
+<script src="js/zoom-block.js"></script>
 
 <script>
   const overlay = document.getElementById("password-overlay");
@@ -94,7 +74,6 @@
   const error = document.getElementById("password-error");
   const toggle = document.getElementById("toggle-password");
 
-  // Bloqueia tudo se não estiver autenticado
   if (localStorage.getItem("ursinhosAuth") !== "true") {
     document.body.classList.add("locked");
   } else {
@@ -127,7 +106,6 @@
     }
   });
 
-  // Bloqueio de ESC (mantido)
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       e.preventDefault();
@@ -135,8 +113,6 @@
     }
   });
 
-  // F12 liberado — removido daqui
-  // Bloqueio apenas de Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
   document.addEventListener("keydown", (e) => {
     if (
       (e.ctrlKey && e.shiftKey && e.key === "I") ||

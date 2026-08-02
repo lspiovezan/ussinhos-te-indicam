@@ -1,4 +1,4 @@
-// Bloqueia CTRL + scroll (zoom)
+// Bloqueia CTRL + scroll (zoom desktop)
 document.addEventListener("wheel", function(e) {
   if (e.ctrlKey) {
     e.preventDefault();
@@ -16,14 +16,14 @@ document.addEventListener("keydown", function(e) {
   }
 });
 
-// Bloqueia pinch zoom no mobile
+// Bloqueia pinch zoom no mobile (iOS + Android)
 document.addEventListener("touchmove", function(e) {
   if (e.scale !== 1) {
     e.preventDefault();
   }
 }, { passive: false });
 
-// Bloqueia double-tap zoom
+// Bloqueia double-tap zoom no mobile
 let lastTouch = 0;
 document.addEventListener("touchend", function(e) {
   const now = Date.now();
@@ -31,4 +31,17 @@ document.addEventListener("touchend", function(e) {
     e.preventDefault();
   }
   lastTouch = now;
+}, { passive: false });
+
+// Bloqueia gesto de zoom do trackpad (Safari / Mac)
+document.addEventListener("gesturestart", function(e) {
+  e.preventDefault();
+}, { passive: false });
+
+document.addEventListener("gesturechange", function(e) {
+  e.preventDefault();
+}, { passive: false });
+
+document.addEventListener("gestureend", function(e) {
+  e.preventDefault();
 }, { passive: false });
