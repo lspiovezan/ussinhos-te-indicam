@@ -55,6 +55,15 @@
   .bg-padua .bate-voltas-img {
     background-image: url("../img/padua.jpg");
   }
+
+  .bg-roma .bate-voltas-img {
+    background-image: url("../img/roma.jpg");
+  }
+
+  .bg-florenca .bate-voltas-img {
+    background-image: url("../img/florenca.jpg");
+  }
+
   
   /* ============================================================
      CARD COMPLETO
