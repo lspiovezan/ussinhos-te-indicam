@@ -8,7 +8,7 @@ header {
   display: flex;
   align-items: center;
   padding: 0 24px;
-  height: 72px; /* base */
+  height: 72px;
   position: fixed;
   top: 0;
   left: 0;
@@ -127,7 +127,6 @@ body.menu-open .menu-toggle::after { background: #009246; }
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* impede transições antes do JS esconder o menu */
 .menu.no-transition {
   transition: none !important;
 }
@@ -191,7 +190,7 @@ body.menu-open .menu-toggle::after { background: #009246; }
 @media (min-width: 1200px) {
 
   header {
-    height: calc(72px * 1.4); /* 40% maior */
+    height: calc(72px * 1.4);
     padding: 0 24px;
   }
 
@@ -199,6 +198,15 @@ body.menu-open .menu-toggle::after { background: #009246; }
     padding-top: calc(72px * 1.4);
   }
 
-  /* 🔥 NADA do menu muda no desktop */
-  /* menu, fontes, paddings, largura — tudo igual ao tablet */
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu {
+    top: calc(72px * 1.4);
+    width: 70%;
+    max-width: 320px;
+    height: 70vh;
+    border-radius: 0 12px 12px 0;
+  }
 }

@@ -2,15 +2,15 @@
    TEMA — Paleta moderna inspirada na Itália
    ============================================================ */
 :root {
-  --color-primary: #1F3A4A;
-  --color-secondary: #C46A4A;
-  --color-accent: #AFC7D9;
-  --color-bg: #F7F4EF;
-  --color-soft: #E8DCC7;
+  --color-primary: #1F3A4A;   /* azul petróleo */
+  --color-secondary: #C46A4A; /* terracota */
+  --color-accent: #AFC7D9;    /* azul vespa */
+  --color-bg: #F7F4EF;        /* branco quente */
+  --color-soft: #E8DCC7;      /* areia */
   --color-dark: #2C2C2C;
-  --color-green-italy: #009246;
-  --color-red-italy: #CE2B37;
-  --color-line-blue: #1E90FF;
+  --color-green-italy: #009246;  /* verde da bandeira da Itália */
+  --color-red-italy: #CE2B37;   /* vermelho da bandeira da Itália */
+  --color-line-blue: #1E90FF; /* azul linha (Dodger Blue) */
   --radius: 14px;
   --shadow-sm: 0 2px 6px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 14px rgba(0,0,0,0.12);
@@ -19,7 +19,7 @@
 }
 
 /* ============================================================
-   BASE GLOBAL
+   BASE GLOBAL — Fonte e bloqueios
    ============================================================ */
 html, body {
   font-family: "Roboto", system-ui, sans-serif;
@@ -32,10 +32,13 @@ html, body {
   touch-action: manipulation;
 }
 
-html { font-size: 16px; }
+html {
+  font-size: 16px;
+}
 
 body {
   margin: 0;
+  font-family: "Roboto", "Inter", system-ui, sans-serif;
   background: var(--color-bg);
   color: var(--color-dark);
   padding-top: var(--header-height);
@@ -51,30 +54,36 @@ h1 {
 }
 
 h1, h2, h3 {
+  font-family: "Roboto", system-ui, sans-serif;
   color: var(--color-green-italy);
   margin: 8px 16px;
 }
 
 p {
+  font-family: "Roboto", system-ui, sans-serif;
   color: var(--color-green-italy);
   margin: 8px 16px 4px 16px;
 }
 
 li {
+  font-family: "Roboto", system-ui, sans-serif;
   color: var(--color-green-italy);
   margin: 8px 32px 4px 16px;
 }
 
 a {
   text-decoration: underline;
+  font-family: "Roboto", system-ui, sans-serif;
   color: var(--color-line-blue);
   transition: 0.3s ease;
 }
 
-a:hover { color: var(--color-secondary); }
+a:hover {
+  color: var(--color-secondary);
+}
 
 /* ============================================================
-   LISTA GUIA — bullets de urso 🐻
+   LISTA GUIA — vertical + bullets de urso 🐻
    ============================================================ */
 .lista-guia {
   display: block;
@@ -88,11 +97,14 @@ a:hover { color: var(--color-secondary); }
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 16px;
+  font-size: inherit;
+  text-align: left;
 }
 
 .lista-guia li::before {
   content: "🐻";
   font-size: 1.4rem;
+  line-height: 1;
   margin-top: 2px;
 }
 
@@ -120,7 +132,9 @@ header {
   transition: transform 0.3s ease;
 }
 
-.menu-toggle:hover { transform: scale(1.1); }
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
 
 .header-logo {
   width: 200px;
@@ -128,7 +142,9 @@ header {
   transition: transform 0.3s ease;
 }
 
-.header-logo:hover { transform: scale(1.05); }
+.header-logo:hover {
+  transform: scale(1.05);
+}
 
 /* ============================================================
    MENU — Mobile
@@ -146,7 +162,9 @@ header {
   animation: fadeIn 0.4s ease;
 }
 
-.menu.show { display: flex; }
+.menu.show {
+  display: flex;
+}
 
 .menu-item > a {
   padding: 14px;
@@ -172,8 +190,13 @@ header {
   margin-top: 8px;
 }
 
-.menu-item.open > .submenu { display: flex; }
-.submenu-item.open > .submenu-level2 { display: flex; }
+.menu-item.open > .submenu {
+  display: flex;
+}
+
+.submenu-item.open > .submenu-level2 {
+  display: flex;
+}
 
 /* ============================================================
    CARDS — Apps e Bate-voltas
@@ -204,10 +227,12 @@ header {
   filter: brightness(1.1);
 }
 
+/* Labels */
 .app-title, .bate-voltas-label {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-primary);
+  text-align: center;
   margin-top: 10px;
 }
 
@@ -243,27 +268,168 @@ footer {
 }
 
 /* ============================================================
-   MEDIA QUERIES — Desktop (limpo, sem interferir no header)
+   MEDIA QUERIES — Desktop (header igual ao tablet, só 40% maior)
    ============================================================ */
 @media (min-width: 1200px) {
 
-  /* grid maior */
-  .grid, .apps-container, .bate-voltas-grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px;
+  header {
+    height: calc(72px * 1.4);
+    padding: 0 24px;
   }
 
-  /* 🔥 REMOVIDO: menu-toggle display:none */
-  /* 🔥 REMOVIDO: menu horizontal */
-  /* 🔥 REMOVIDO: fontes gigantes */
-  /* 🔥 REMOVIDO: header gigante */
-  /* 🔥 REMOVIDO: menu gigante */
+  body {
+    padding-top: calc(72px * 1.4);
+  }
 
-  /* imagens */
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu {
+    width: 70%;
+    max-width: 320px;
+    height: 70vh;
+    padding: 8px;
+    position: fixed;
+    top: calc(72px * 1.4);
+    left: 0;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: var(--shadow-lg);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .submenu,
+  .submenu-level2 {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+/* ============================================================
+   IMAGENS FULL-WIDTH RESPONSIVAS
+   ============================================================ */
+.full-width-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+@media (min-width: 1200px) {
   .full-width-image {
     width: 33%;
     margin: 0 auto;
     border-radius: 12px;
+  }
+}
+
+.back-button-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.back-button {
+  display: inline-block;
+  background: #009246;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.back-button:hover {
+  background: var(--color-secondary);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   SEÇÃO COMPRAS
+   ============================================================ */
+.panel-compras {
+  padding: 20px;
+}
+
+.titulo-compras {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.descricao-compras {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.container-compras {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card-compras {
+  background-color: #fff;
+  width: 220px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.card-compras:hover {
+  transform: scale(1.05);
+}
+
+.logo-compras {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.nome-loja-compras {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #444;
+}
+
+.texto-compras {
+  font-size: 14px;
+  color: #666;
+}
+
+.card-compras::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  width: 90%;
+  height: 15px;
+  background: rgba(0,0,0,0.1);
+  filter: blur(4px);
+  z-index: -1;
+}
+
+/* ============================================================
+   MEDIA QUERY — Telas maiores que 700px
+   ============================================================ */
+@media (min-width: 700px) {
+  p {
+    font-size: 1.5em;
   }
 }
 
@@ -281,6 +447,7 @@ footer {
 .vocab-table td {
   border: 1px solid #ddd;
   padding: 12px;
+  text-align: center;
 }
 
 .vocab-table thead tr {
