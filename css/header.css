@@ -1,5 +1,5 @@
 /* ============================================================
-   HEADER BASE - padrão mobile
+   HEADER BASE - mobile + tablet
    ============================================================ */
 
 header {
@@ -8,7 +8,7 @@ header {
   display: flex;
   align-items: center;
   padding: 0 24px;
-  height: 72px;
+  height: 72px; /* base */
   position: fixed;
   top: 0;
   left: 0;
@@ -70,22 +70,13 @@ body {
 .menu-toggle div { top: 10px; }
 .menu-toggle::after { bottom: 0; }
 
-/* Ícone em pé + cores da Itália quando menu abre */
 body.menu-open .menu-toggle {
   transform: rotate(90deg);
 }
 
-body.menu-open .menu-toggle::before {
-  background: #CE2B37; /* vermelho */
-}
-
-body.menu-open .menu-toggle div {
-  background: #ffffff; /* branco */
-}
-
-body.menu-open .menu-toggle::after {
-  background: #009246; /* verde */
-}
+body.menu-open .menu-toggle::before { background: #CE2B37; }
+body.menu-open .menu-toggle div { background: #ffffff; }
+body.menu-open .menu-toggle::after { background: #009246; }
 
 /* ============================================================
    OVERLAY
@@ -110,7 +101,7 @@ body.menu-open .menu-toggle::after {
 }
 
 /* ============================================================
-   MENU LATERAL
+   MENU LATERAL (tablet + mobile + desktop)
    ============================================================ */
 
 .menu {
@@ -136,6 +127,11 @@ body.menu-open .menu-toggle::after {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* impede transições antes do JS esconder o menu */
+.menu.no-transition {
+  transition: none !important;
+}
+
 .menu.show {
   display: flex;
   opacity: 1;
@@ -143,7 +139,7 @@ body.menu-open .menu-toggle::after {
 }
 
 /* ============================================================
-   LINKS SEM SUBLINHADO
+   LINKS
    ============================================================ */
 
 .menu a {
@@ -152,28 +148,22 @@ body.menu-open .menu-toggle::after {
 }
 
 /* ============================================================
-   TÍTULOS (h2 e h3)
+   TÍTULOS
    ============================================================ */
 
 .menu h2,
 .menu h3 {
-  color: #CE2B37; /* vermelho Itália */
+  color: #CE2B37;
   font-weight: 800;
   margin-top: 18px;
   margin-bottom: 6px;
-  padding-left: 0; /* voltam para a esquerda */
 }
 
-.menu h2 {
-  font-size: 22px; /* maior */
-}
-
-.menu h3 {
-  font-size: 18px;
-}
+.menu h2 { font-size: 22px; }
+.menu h3 { font-size: 18px; }
 
 /* ============================================================
-   MENU-ITEM (inclui antigos submenu-item)
+   MENU-ITEM
    ============================================================ */
 
 .menu-item {
@@ -185,61 +175,30 @@ body.menu-open .menu-toggle::after {
   margin-top: 12px;
 }
 
-/* Hierarquia visual: itens internos mais à direita */
 .menu-item.indent {
   padding-left: 40px;
 }
 
-/* Hover */
 .menu-item:hover {
   background: var(--terracotta);
   color: #fff;
 }
 
 /* ============================================================
-   DESKTOP — dobro do tamanho
+   DESKTOP — igual ao tablet, só 40% mais alto
    ============================================================ */
 
 @media (min-width: 1200px) {
 
   header {
-    height: 144px;
-    padding: 0 48px;
+    height: calc(72px * 1.4); /* 40% maior */
+    padding: 0 24px;
   }
 
   body {
-    padding-top: 144px;
+    padding-top: calc(72px * 1.4);
   }
 
-  .header-left { left: 32px; }
-  .header-logo { width: 280px; }
-  .menu-toggle { width: 64px; height: 48px; }
-
-  .menu {
-    top: 144px;
-    width: 80%;
-    max-width: 640px;
-    height: 80vh;
-    padding: 16px;
-    border-radius: 0 24px 24px 0;
-  }
-
-  .menu-item {
-    padding: 28px 40px;
-    margin-top: 24px;
-    border-radius: 20px;
-    font-size: 32px;
-  }
-
-  .menu-item.indent {
-    padding-left: 80px;
-  }
-
-  .menu h2 {
-    font-size: 36px;
-  }
-
-  .menu h3 {
-    font-size: 30px;
-  }
+  /* 🔥 NADA do menu muda no desktop */
+  /* menu, fontes, paddings, largura — tudo igual ao tablet */
 }

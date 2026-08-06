@@ -7,8 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(html => {
       document.body.insertAdjacentHTML("afterbegin", html);
 
-      const menuToggle = document.querySelector(".menu-toggle");
       const menu = document.querySelector(".menu");
+      const menuToggle = document.querySelector(".menu-toggle");
+
+      /* 🔥 CORREÇÃO DEFINITIVA: impede qualquer animação antes de esconder */
+      menu.classList.add("no-transition");
+      menu.style.display = "none";
 
       const overlay = document.createElement("div");
       overlay.classList.add("menu-overlay");
@@ -16,19 +20,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (menuToggle && menu) {
 
-        /* garante que o menu começa fechado */
-        menu.classList.remove("show");
+        /* 🔥 remove bloqueio de transição após esconder */
+        setTimeout(() => {
+          menu.classList.remove("no-transition");
+        }, 50);
 
         menuToggle.addEventListener("click", () => {
           const isOpen = menu.classList.toggle("show");
           document.body.classList.toggle("menu-open", isOpen);
           overlay.classList.toggle("show", isOpen);
+
+          menu.style.display = isOpen ? "flex" : "none";
         });
 
         overlay.addEventListener("click", () => {
           menu.classList.remove("show");
           document.body.classList.remove("menu-open");
           overlay.classList.remove("show");
+          menu.style.display = "none";
         });
 
         menu.querySelectorAll("a").forEach(link => {
@@ -36,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             menu.classList.remove("show");
             document.body.classList.remove("menu-open");
             overlay.classList.remove("show");
+            menu.style.display = "none";
           });
         });
       }
