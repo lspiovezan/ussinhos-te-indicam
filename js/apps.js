@@ -10,14 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
       imagem: "../img/apps/the-fork-logo.jpg"
     },
     {
-      nome: "Trainline",
-      categoria: "Transporte",
-      descricao: "Compra de passagens de trem na Itália e Europa com preços atualizados.",
-      android: "https://play.google.com/store/apps/details?id=com.trainline",
-      iphone: "https://apps.apple.com/app/trainline/id698600130",
-      imagem: "../img/apps/trainline.png"
-    },
-    {
       nome: "ATM Milano",
       categoria: "Transporte",
       descricao: "App oficial para metrô, ônibus e tram de Milão.",
