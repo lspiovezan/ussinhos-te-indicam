@@ -570,3 +570,40 @@ body.locked {
     padding: 24px;
   }
 }
+
+/* ============================================================
+   MAPAS — Responsividade para iframes
+   ============================================================ */
+iframe.mapa {
+  border: none;
+  height: 400px; /* altura padrão */
+  max-width: 100%;
+}
+
+/* Mobile: ocupa toda a largura */
+@media (max-width: 699px) {
+  iframe.mapa {
+    width: 100%;
+    display: block;
+    margin: 0;
+  }
+}
+
+/* Tablet: centralizado e 80% da largura */
+@media (min-width: 700px) and (max-width: 1199px) {
+  iframe.mapa {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop: centralizado e 60% da largura */
+@media (min-width: 1200px) {
+  iframe.mapa {
+    width: 60%;
+    height: 700px; /* altura maior no desktop */
+    display: block;
+    margin: 0 auto;
+  }
+}
