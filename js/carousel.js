@@ -12,7 +12,7 @@ function updateCarousel() {
 
 // Só ativa botões no desktop
 function enableDesktopNav() {
-  if (window.innerWidth >= 768) {
+  if (window.innerWidth >= 1200) {
     nextBtn.style.display = "flex";
     prevBtn.style.display = "flex";
 
