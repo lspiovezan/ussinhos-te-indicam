@@ -1,13 +1,23 @@
 /* ============================================================
-   FOOTER — Sempre fixado no rodapé da tela
+   FOOTER — Inteligente: fixo em páginas curtas, normal em longas
    ============================================================ */
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+/* Estrutura base para permitir o comportamento */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 
+/* Conteúdo principal ocupa o espaço disponível */
+main {
+  flex: 1;
+}
+
+/* Footer: empurrado para baixo se a página for curta */
+footer {
+  margin-top: auto; /* garante que vá para o fim da tela */
   background: linear-gradient(
     135deg,
     rgba(0,146,70,0.08) 0%,
@@ -25,11 +35,9 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  z-index: 999; /* garante que fique acima do conteúdo */
 }
 
-/* Logo — maior e com destaque */
+/* Logo */
 footer .footer-logo {
   width: 200px;
   height: auto;
@@ -42,12 +50,7 @@ footer .footer-logo:hover {
   transform: scale(1.06);
 }
 
-/* Texto removido */
-footer p {
-  display: none;
-}
-
-/* Botão de sair */
+/* Botão */
 #logout-btn {
   background: var(--color-green-italy);
   color: #fff;
