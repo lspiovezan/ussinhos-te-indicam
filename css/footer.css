@@ -1,8 +1,13 @@
 /* ============================================================
-   FOOTER — Versão final ajustada
+   FOOTER — Sempre fixado no rodapé da tela
    ============================================================ */
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
   background: linear-gradient(
     135deg,
     rgba(0,146,70,0.08) 0%,
@@ -12,24 +17,24 @@ footer {
   backdrop-filter: blur(4px);
 
   padding: 16px 10px;
-  margin-top: 30px;
-
   text-align: center;
   border-top: 1px solid rgba(0,0,0,0.08);
   box-shadow: 0 -3px 8px rgba(0,0,0,0.06);
 
   display: flex;
   flex-direction: column;
-  align-items: center;   /* garante alinhamento perfeito */
+  align-items: center;
   justify-content: center;
+
+  z-index: 999; /* garante que fique acima do conteúdo */
 }
 
 /* Logo — maior e com destaque */
 footer .footer-logo {
-  width: 200px; /* destaque total */
+  width: 200px;
   height: auto;
   object-fit: contain;
-  margin-bottom: 8px; /* botão fica colado abaixo */
+  margin-bottom: 8px;
   transition: transform 0.3s ease;
 }
 
@@ -42,22 +47,22 @@ footer p {
   display: none;
 }
 
-/* Botão de sair — menor e alinhado */
+/* Botão de sair */
 #logout-btn {
   background: var(--color-green-italy);
   color: #fff;
   font-family: "Roboto", sans-serif;
-  font-size: 11px; /* menor */
+  font-size: 11px;
   font-weight: 600;
 
-  padding: 4px 12px; /* altura reduzida */
+  padding: 4px 12px;
   border: none;
-  border-radius: 14px; /* menor */
+  border-radius: 14px;
   cursor: pointer;
   transition: 0.3s ease;
   box-shadow: var(--shadow-sm);
 
-  margin-top: 6px; /* distância perfeita do logo */
+  margin-top: 6px;
 }
 
 #logout-btn:hover {
@@ -98,7 +103,7 @@ footer p {
   }
 
   footer .footer-logo {
-    width: 220px; /* ainda mais destaque no desktop */
+    width: 220px;
   }
 
   #logout-btn {
