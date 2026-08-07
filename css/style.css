@@ -299,7 +299,7 @@ footer {
     border-radius: 0 12px 12px 0;
   }
 
-  .submenu,
+.submenu,
   .submenu-level2 {
     position: static;
     background: transparent;
@@ -463,5 +463,110 @@ footer {
   .vocab-table {
     max-width: 1000px;
     margin: 20px auto;
+  }
+}
+
+/* ============================================================
+   POP-UP DE SENHA (responsivo)
+   ============================================================ */
+#password-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInPopup 0.6s ease forwards;
+}
+
+@keyframes fadeInPopup {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+#password-box {
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  animation: slideUp 0.6s ease forwards;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.password-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+#password-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#toggle-password {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#password-btn {
+  background: var(--color-green-italy);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#password-btn:hover {
+  background: var(--color-secondary);
+}
+
+/* ============================================================
+   RESPONSIVIDADE DO POP-UP
+   ============================================================ */
+@media (max-width: 600px) {
+  #password-box {
+    max-width: 90%;
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+  #password-input {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  #password-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  #password-box {
+    max-width: 70%;
+    padding: 24px;
   }
 }
