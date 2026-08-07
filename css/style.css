@@ -199,47 +199,9 @@ header {
 }
 
 /* ============================================================
-   CARDS — Apps e Bate-voltas
-   ============================================================ */
-.card, .app-card, .bate-voltas-card {
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  padding: 18px;
-  text-align: center;
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.card:hover, .app-card:hover, .bate-voltas-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: var(--shadow-md);
-}
-
-.card img, .app-image img, .bate-voltas-img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.card:hover img, .app-card:hover img, .bate-voltas-card:hover .bate-voltas-img {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-/* Labels */
-.app-title, .bate-voltas-label {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* ============================================================
    GRID — Mobile First
    ============================================================ */
-.grid, .apps-container, .bate-voltas-grid {
+.grid, .apps-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
