@@ -77,6 +77,14 @@
   margin-top: 24px;
 }
 
+/* Tablets e telas médias: 2 cards por vez */
+@media (min-width: 700px) and (max-width: 1199px) {
+  .apps-page .apps-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
 /* Desktop: múltiplos cards */
 @media (min-width: 1200px) {
   .apps-page .apps-container {
