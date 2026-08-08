@@ -46,29 +46,39 @@
     object-fit: contain;
   }
 
-  .carousel-btn {
+  /* 🔥 MINIATURAS NO DESKTOP */
+  .carousel-thumbs {
     display: flex;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    font-size: 2rem;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    border-radius: 50%;
-    align-items: center;
     justify-content: center;
-    color: #fff;
-    background: rgba(0,0,0,0.4);
-    z-index: 10;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
   }
 
-  .carousel-btn.prev {
-    left: 10px;
+  .carousel-thumb {
+    width: 90px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
   }
 
-  .carousel-btn.next {
-    right: 10px;
+  .carousel-thumb:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .carousel-thumb.active {
+    opacity: 1;
+    border-color: var(--color-green-italy);
+    transform: scale(1.08);
+  }
+
+  /* Botões removidos no desktop */
+  .carousel-btn {
+    display: none !important;
   }
 }
