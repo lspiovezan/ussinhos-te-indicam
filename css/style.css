@@ -444,3 +444,80 @@ footer {
   filter: blur(4px);
   z-index: -1;
 }
+
+/* ============================
+   POP-UP DE SENHA
+   ============================ */
+
+#password-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.75); /* 🔥 escurece o fundo */
+  backdrop-filter: blur(4px);      /* opcional: deixa mais bonito */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999; /* 🔥 bloqueia tudo */
+}
+
+#password-box {
+  background: #fff;
+  padding: 32px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+.password-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#password-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+#toggle-password {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+}
+
+#password-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #AFC7D9;
+  color: #1F3A4A;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+#password-btn:hover {
+  background: #6A8FA1;
+  color: #fff;
+}
+
+#password-error {
+  margin-top: 10px;
+  color: #C46A4A;
+  font-size: 14px;
+}
