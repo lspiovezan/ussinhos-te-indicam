@@ -6,12 +6,14 @@ const prevBtn = document.querySelector('.carousel-btn.prev');
 let currentIndex = 0;
 
 function updateCarousel() {
-  const width = slides[0].offsetWidth; // largura real do slide
+  const width = slides[0].offsetWidth;
   track.style.transform = `translateX(-${currentIndex * width}px)`;
 }
 
 function enableDesktopNav() {
-  if (window.innerWidth >= 1200) {
+  const isDesktop = window.innerWidth >= 1200;
+
+  if (isDesktop) {
     nextBtn.style.display = "flex";
     prevBtn.style.display = "flex";
 
@@ -26,6 +28,7 @@ function enableDesktopNav() {
     };
 
     updateCarousel();
+
   } else {
     track.style.transform = "none";
     nextBtn.style.display = "none";
@@ -34,6 +37,4 @@ function enableDesktopNav() {
 }
 
 enableDesktopNav();
-
-/* CORREÇÃO: não recria listeners no resize */
-window.addEventListener("resize", updateCarousel);
+window.addEventListener("resize", enableDesktopNav);

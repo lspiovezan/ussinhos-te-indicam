@@ -8,25 +8,25 @@
   background: var(--color-background);
 }
 
+/* MOBILE + TABLET */
 .carousel-track {
   display: flex;
-  overflow-x: auto;               
-  scroll-snap-type: x mandatory;  
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   transition: transform 0.4s ease;
 }
 
 .carousel-track img {
-  flex: 0 0 100%;                 
-  scroll-snap-align: start;
+  flex: 0 0 100%;
   width: 100%;
   height: auto;
   max-height: 80vh;
   object-fit: contain;
-  margin: 0 auto;
+  scroll-snap-align: start;
 }
 
-/* Botões escondidos no mobile */
+/* Botões escondidos no mobile/tablet */
 .carousel-btn {
   display: none;
 }
@@ -35,16 +35,15 @@
 @media (min-width: 1200px) {
 
   .carousel-track {
-    overflow-x: hidden;           
+    overflow-x: hidden;
     scroll-snap-type: none;
   }
 
-  /* CORREÇÃO: cada slide tem largura fixa igual ao carrossel */
   .carousel-track img {
-    flex: 0 0 1200px;
-    width: 1200px;
+    flex: 0 0 100%;
+    width: 100%;
     max-height: 70vh;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .carousel-btn {
@@ -53,23 +52,23 @@
     top: 50%;
     transform: translateY(-50%);
     border: none;
-    font-size: 1.5rem;
-    width: 48px;
-    height: 48px;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
     color: #fff;
+    background: rgba(0,0,0,0.4);
+    z-index: 10;
   }
 
   .carousel-btn.prev {
     left: 10px;
-    background: #009246;
   }
 
   .carousel-btn.next {
     right: 10px;
-    background: #CE2B37;
   }
 }
