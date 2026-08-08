@@ -5,23 +5,38 @@ const prevBtn = document.querySelector('.carousel-btn.prev');
 
 let currentIndex = 0;
 
-/* ============================
-   MOVE PARA O SLIDE CORRETO
-============================ */
-function updateCarousel() {
-  const width = slides[0].offsetWidth;
-  track.style.transform = `translateX(-${currentIndex * width}px)`;
-  updateThumbs();
+/* ============================================================
+   MODO MOBILE/TABLET — SEM TRANSFORM
+============================================================ */
+function enableMobileMode() {
+  track.style.transform = "none";
+  track.style.overflowX = "auto";
+
+  nextBtn.style.display = "none";
+  prevBtn.style.display = "none";
+
+  // remove miniaturas se existirem
+  const thumbs = document.querySelector('.carousel-thumbs');
+  if (thumbs) thumbs.remove();
 }
 
-/* ============================
-   MINIATURAS NO DESKTOP
-============================ */
-function createThumbnails() {
-  const isDesktop = window.innerWidth >= 1200;
-  if (!isDesktop) return;
+/* ============================================================
+   MODO DESKTOP — TRANSFORM + MINIATURAS
+============================================================ */
+function enableDesktopMode() {
+  track.style.overflowX = "hidden";
 
-  // Se já existe, não recria
+  nextBtn.style.display = "none";
+  prevBtn.style.display = "none";
+
+  createThumbnails();
+  updateCarousel();
+}
+
+/* ============================================================
+   MINIATURAS
+============================================================ */
+function createThumbnails() {
   if (document.querySelector('.carousel-thumbs')) return;
 
   const thumbsContainer = document.createElement('div');
@@ -49,35 +64,40 @@ function updateThumbs() {
   });
 }
 
-/* ============================
-   BOTÕES (somente mobile/tablet)
-============================ */
-function enableDesktopNav() {
+/* ============================================================
+   ATUALIZA SLIDE NO DESKTOP
+============================================================ */
+function updateCarousel() {
+  const width = track.offsetWidth; // largura REAL do carrossel
+  track.style.transform = `translateX(-${currentIndex * width}px)`;
+  updateThumbs();
+}
+
+/* ============================================================
+   TROCA AUTOMÁTICA ENTRE MODOS
+============================================================ */
+function updateMode() {
   const isDesktop = window.innerWidth >= 1200;
 
   if (isDesktop) {
-    nextBtn.style.display = "none";
-    prevBtn.style.display = "none";
-    createThumbnails();
-    updateCarousel();
-
+    enableDesktopMode();
   } else {
-    nextBtn.style.display = "flex";
-    prevBtn.style.display = "flex";
-
-    nextBtn.onclick = () => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateCarousel();
-    };
-
-    prevBtn.onclick = () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateCarousel();
-    };
-
-    track.style.transform = "none";
+    enableMobileMode();
   }
 }
 
-enableDesktopNav();
-window.addEventListener("resize", enableDesktopNav);
+/* ============================================================
+   OBSERVA MUDANÇAS DE TAMANHO
+============================================================ */
+const resizeObserver = new ResizeObserver(() => {
+  const isDesktop = window.innerWidth >= 1200;
+  if (isDesktop) updateCarousel();
+});
+
+resizeObserver.observe(track);
+
+/* ============================================================
+   INICIALIZAÇÃO
+============================================================ */
+updateMode();
+window.addEventListener("resize", updateMode);

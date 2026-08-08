@@ -46,7 +46,7 @@
     object-fit: contain;
   }
 
-  /* 🔥 MINIATURAS NO DESKTOP */
+  /* MINIATURAS */
   .carousel-thumbs {
     display: flex;
     justify-content: center;
@@ -75,10 +75,5 @@
     opacity: 1;
     border-color: var(--color-green-italy);
     transform: scale(1.08);
-  }
-
-  /* Botões removidos no desktop */
-  .carousel-btn {
-    display: none !important;
   }
 }
