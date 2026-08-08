@@ -28,8 +28,7 @@ html, body {
   line-height: 1.6;
   margin: 0;
   padding-top: var(--header-height);
-  overflow-x: hidden;
-  touch-action: manipulation;
+  overflow-x: hidden; /* bloqueia scroll lateral */
 }
 
 html {
@@ -49,7 +48,7 @@ body {
    ============================================================ */
 h1 {
   text-align: center;
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-size: clamp(1.8rem, 5vw, 2.5rem); /* ajusta dinamicamente */
   word-wrap: break-word;
 }
 
@@ -83,29 +82,20 @@ a:hover {
 }
 
 /* ============================================================
-   LISTA GUIA — vertical + bullets de urso 🐻
+   LISTA GUIA — "O que você encontra aqui"
    ============================================================ */
 .lista-guia {
-  display: block;
-  padding-left: 0;
-  margin: 0 auto;
-  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
 }
 
 .lista-guia li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 16px;
-  font-size: inherit;
-  text-align: left;
-}
-
-.lista-guia li::before {
-  content: "🐻";
-  font-size: 1.4rem;
-  line-height: 1;
-  margin-top: 2px;
+  flex: 1 1 200px;
+  text-align: center;
 }
 
 /* ============================================================
@@ -199,9 +189,47 @@ header {
 }
 
 /* ============================================================
+   CARDS — Apps e Bate-voltas
+   ============================================================ */
+.card, .app-card, .bate-voltas-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 18px;
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card:hover, .app-card:hover, .bate-voltas-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+.card img, .app-image img, .bate-voltas-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card:hover img, .app-card:hover img, .bate-voltas-card:hover .bate-voltas-img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Labels */
+.app-title, .bate-voltas-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ============================================================
    GRID — Mobile First
    ============================================================ */
-.grid, .apps-container {
+.grid, .apps-container, .bate-voltas-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -230,44 +258,75 @@ footer {
 }
 
 /* ============================================================
-   MEDIA QUERIES — Desktop (header igual ao tablet, só 40% maior)
+   MEDIA QUERIES — Desktop
    ============================================================ */
-@media (min-width: 1200px) {
-
-  header {
-    height: calc(72px * 1.4);
-    padding: 0 24px;
-  }
-
-  body {
-    padding-top: calc(72px * 1.4);
+@media (min-width: 700px) {
+  .grid, .apps-container, .bate-voltas-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
   }
 
   .menu-toggle {
-    display: flex;
+    display: none;
   }
 
   .menu {
-    width: 70%;
-    max-width: 320px;
-    height: 70vh;
-    padding: 8px;
-    position: fixed;
-    top: calc(72px * 1.4);
-    left: 0;
-    flex-direction: column;
-    background: #fff;
-    box-shadow: var(--shadow-lg);
-    border-radius: 0 12px 12px 0;
-  }
-
-.submenu,
-  .submenu-level2 {
     position: static;
+    display: flex !important;
+    flex-direction: row;
     background: transparent;
     box-shadow: none;
-    border-radius: 0;
     padding: 0;
+  }
+
+  .menu-item {
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  .menu-item > a {
+    background: transparent;
+    margin: 0;
+    padding: 10px 16px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .menu-item > a:hover {
+    color: var(--color-secondary);
+  }
+
+  /* Dropdowns */
+  .submenu {
+    position: absolute;
+    background: var(--color-bg);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius);
+    min-width: 220px;
+    display: none;
+    padding: 12px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .menu-item:hover > .submenu {
+    display: block;
+  }
+
+  .submenu-level2 {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display: none;
+    background: var(--color-bg);
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius);
+    min-width: 220px;
+    padding: 12px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .submenu-item:hover > .submenu-level2 {
+    display: block;
   }
 }
 
@@ -283,7 +342,7 @@ footer {
   object-fit: cover;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .full-width-image {
     width: 33%;
     margin: 0 auto;
@@ -298,7 +357,7 @@ footer {
 
 .back-button {
   display: inline-block;
-  background: #009246;
+  background: #009246; /* Verde Itália */
   color: #fff;
   font-size: 18px;
   font-weight: 600;
@@ -384,194 +443,4 @@ footer {
   background: rgba(0,0,0,0.1);
   filter: blur(4px);
   z-index: -1;
-}
-
-/* ============================================================
-   MEDIA QUERY — Telas maiores que 700px
-   ============================================================ */
-@media (min-width: 700px) {
-  p {
-    font-size: 1.5em;
-  }
-}
-
-@media (min-width: 1200px) {
-  p {
-    font-size: 1em;
-  }
-}
-
-/* ============================================================
-   TABELAS — Vocabulário
-   ============================================================ */
-.vocab-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px auto;
-  text-align: center;
-}
-
-.vocab-table th,
-.vocab-table td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: center;
-}
-
-.vocab-table thead tr {
-  background-color: var(--color-green-italy);
-  color: #fff;
-}
-
-.vocab-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-@media (min-width: 1200px) {
-  .vocab-table {
-    max-width: 1000px;
-    margin: 20px auto;
-  }
-}
-
-/* ============================================================
-   POP-UP DE SENHA (responsivo)
-   ============================================================ */
-#password-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: fadeInPopup 0.6s ease forwards;
-}
-
-@keyframes fadeInPopup {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-body.locked {
-  overflow: hidden;
-}
-
-#password-box {
-  background: #fff;
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-  animation: slideUp 0.6s ease forwards;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.password-field {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 16px 0;
-}
-
-#password-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-#toggle-password {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-#password-btn {
-  background: var(--color-green-italy);
-  color: #fff;
-  font-weight: 600;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-#password-btn:hover {
-  background: var(--color-secondary);
-}
-
-/* ============================================================
-   RESPONSIVIDADE DO POP-UP
-   ============================================================ */
-@media (max-width: 600px) {
-  #password-box {
-    max-width: 90%;
-    padding: 20px;
-    font-size: 0.9rem;
-  }
-
-  #password-input {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
-
-  #password-btn {
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-  #password-box {
-    max-width: 70%;
-    padding: 24px;
-  }
-}
-
-/* ============================================================
-   MAPAS — Responsividade para iframes
-   ============================================================ */
-iframe.mapa {
-  border: none;
-  height: 400px; /* altura padrão */
-  max-width: 100%;
-}
-
-/* Mobile: ocupa toda a largura */
-@media (max-width: 699px) {
-  iframe.mapa {
-    width: 100%;
-    display: block;
-    margin: 0;
-  }
-}
-
-/* Tablet: centralizado e 80% da largura */
-@media (min-width: 700px) and (max-width: 1199px) {
-  iframe.mapa {
-    width: 80%;
-    display: block;
-    margin: 0 auto;
-  }
-}
-
-/* Desktop: centralizado e 60% da largura */
-@media (min-width: 1200px) {
-  iframe.mapa {
-    width: 60%;
-    height: 700px; /* altura maior no desktop */
-    display: block;
-    margin: 0 auto;
-  }
 }
