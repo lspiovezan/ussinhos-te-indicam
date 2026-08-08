@@ -6,30 +6,27 @@ const prevBtn = document.querySelector('.carousel-btn.prev');
 let currentIndex = 0;
 
 function updateCarousel() {
-  const width = slides[0].getBoundingClientRect().width;
+  const width = slides[0].offsetWidth; // largura real do slide
   track.style.transform = `translateX(-${currentIndex * width}px)`;
 }
 
-// Só ativa botões no desktop
 function enableDesktopNav() {
   if (window.innerWidth >= 1200) {
     nextBtn.style.display = "flex";
     prevBtn.style.display = "flex";
 
-    nextBtn.addEventListener('click', () => {
+    nextBtn.onclick = () => {
       currentIndex = (currentIndex + 1) % slides.length;
       updateCarousel();
-    });
+    };
 
-    prevBtn.addEventListener('click', () => {
+    prevBtn.onclick = () => {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       updateCarousel();
-    });
+    };
 
-    window.addEventListener('resize', updateCarousel);
     updateCarousel();
   } else {
-    // Mobile: remove transform, deixa scroll natural
     track.style.transform = "none";
     nextBtn.style.display = "none";
     prevBtn.style.display = "none";
@@ -37,4 +34,6 @@ function enableDesktopNav() {
 }
 
 enableDesktopNav();
-window.addEventListener("resize", enableDesktopNav);
+
+/* CORREÇÃO: não recria listeners no resize */
+window.addEventListener("resize", updateCarousel);

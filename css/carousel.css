@@ -5,19 +5,19 @@
   max-width: 1200px;
   margin: 0 auto;
   border-radius: 12px;
-  background: var(--color-background); /* mesma cor do fundo do site */
+  background: var(--color-background);
 }
 
 .carousel-track {
   display: flex;
-  overflow-x: auto;               /* permite rolar lateralmente no mobile */
-  scroll-snap-type: x mandatory;  /* trava cada imagem */
+  overflow-x: auto;               
+  scroll-snap-type: x mandatory;  
   -webkit-overflow-scrolling: touch;
   transition: transform 0.4s ease;
 }
 
 .carousel-track img {
-  flex: 0 0 100%;                 /* ocupa toda a largura no mobile */
+  flex: 0 0 100%;                 
   scroll-snap-align: start;
   width: 100%;
   height: auto;
@@ -31,24 +31,22 @@
   display: none;
 }
 
-/* Desktop */
+/* DESKTOP */
 @media (min-width: 1200px) {
-  .carousel {
-    max-width: 1200px;
-  }
 
   .carousel-track {
-    overflow-x: hidden;           /* remove scroll lateral */
+    overflow-x: hidden;           
     scroll-snap-type: none;
   }
 
+  /* CORREÇÃO: cada slide tem largura fixa igual ao carrossel */
   .carousel-track img {
-    flex: 0 0 auto;
-    width: 100%;
+    flex: 0 0 1200px;
+    width: 1200px;
     max-height: 70vh;
+    object-fit: cover;
   }
 
-  /* Botões visíveis apenas no desktop */
   .carousel-btn {
     display: flex;
     position: absolute;
@@ -67,11 +65,11 @@
 
   .carousel-btn.prev {
     left: 10px;
-    background: #009246;  /* verde Itália */
+    background: #009246;
   }
 
   .carousel-btn.next {
     right: 10px;
-    background: #CE2B37;  /* vermelho Itália */
+    background: #CE2B37;
   }
 }
