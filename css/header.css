@@ -101,11 +101,15 @@ body.menu-open .menu-toggle::after { background: #009246; }
 }
 
 /* ============================================================
-   MENU LATERAL (tablet + mobile + desktop)
+   MENU LATERAL — CORREÇÃO DO FLASH
    ============================================================ */
 
 .menu {
-  display: none;
+  display: none !important;      /* 🔥 impede qualquer flash */
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
   flex-direction: column;
   position: fixed;
   top: 72px;
@@ -121,18 +125,10 @@ body.menu-open .menu-toggle::after { background: #009246; }
   overflow-x: hidden;
   align-items: flex-start;
   border-radius: 0 12px 12px 0;
-
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.menu.no-transition {
-  transition: none !important;
 }
 
 .menu.show {
-  display: flex;
+  display: flex !important;      /* 🔥 só aparece quando o JS manda */
   opacity: 1;
   transform: translateX(0);
 }
@@ -184,7 +180,7 @@ body.menu-open .menu-toggle::after { background: #009246; }
 }
 
 /* ============================================================
-   DESKTOP — igual ao tablet, só 40% mais alto
+   DESKTOP
    ============================================================ */
 @media (min-width: 1200px) {
 
@@ -197,22 +193,14 @@ body.menu-open .menu-toggle::after { background: #009246; }
     padding-top: calc(72px * 1.4);
   }
 
-  /* mantém o sanduíche no desktop */
-  .menu-toggle {
-    display: flex;
-  }
-
-  /* mantém o menu lateral */
   .menu {
     top: calc(72px * 1.4);
     width: 70%;
     max-width: 320px;
     height: 70vh;
-    border-radius: 0 12px 12px 0;
   }
 
-  /* ⭐ LOGO 40% maior no desktop */
   .header-logo {
-    width: calc(140px * 1.4); /* 196px */
+    width: calc(140px * 1.4);
   }
 }

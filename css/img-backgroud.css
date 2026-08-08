@@ -58,6 +58,24 @@
   .bg-como .bate-voltas-img {
     background-image: url("../img/como.jpg");
   }
+
+  .bg-maggiore .bate-voltas-img {
+    background-image: url("../img/maggiore.jpeg");
+  }
+
+  .bg-assis .bate-voltas-img {
+    background-image: url("../img/assis.jpg");
+  }
+
+  .bg-cassia .bate-voltas-img {
+    background-image: url("../img/cassia.jpg");
+  }
+
+  .bg-roma .bate-voltas-img {
+    background-image: url("../img/roma.jpeg");
+  }
+  
+
   
   /* ============================================================
      CARD COMPLETO

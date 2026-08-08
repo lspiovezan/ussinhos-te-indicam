@@ -10,20 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const menu = document.querySelector(".menu");
       const menuToggle = document.querySelector(".menu-toggle");
 
-      /* 🔥 CORREÇÃO DEFINITIVA: impede qualquer animação antes de esconder */
-      menu.classList.add("no-transition");
+      /* 🔥 CORREÇÃO DEFINITIVA: menu nasce invisível */
       menu.style.display = "none";
+      menu.classList.remove("show");
 
       const overlay = document.createElement("div");
       overlay.classList.add("menu-overlay");
       document.body.appendChild(overlay);
 
       if (menuToggle && menu) {
-
-        /* 🔥 remove bloqueio de transição após esconder */
-        setTimeout(() => {
-          menu.classList.remove("no-transition");
-        }, 50);
 
         menuToggle.addEventListener("click", () => {
           const isOpen = menu.classList.toggle("show");
