@@ -521,3 +521,52 @@ footer {
   color: #C46A4A;
   font-size: 14px;
 }
+
+/* ============================
+   Lista da página inicial
+   ============================ */
+
+.lista-guia {
+  list-style: none !important;     
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+
+  width: 100% !important;
+  display: block !important;
+
+  text-align: left !important;     /* 🔥 força alinhamento à esquerda */
+}
+
+/* Cada item fica um abaixo do outro */
+.lista-guia li {
+  display: block !important;       /* 🔥 garante que não fique lado a lado */
+  margin: 14px 0;
+  font-size: 1.1rem;
+
+  position: relative;
+  padding-left: 32px;              /* espaço para o emoji */
+  text-align: left !important;     /* 🔥 reforço */
+}
+
+/* Emoji de ursinho como bullet */
+.lista-guia li::before {
+  content: "🐻";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+/* Links alinhados à esquerda */
+.lista-guia a {
+  text-decoration: none;
+  color: var(--color-green-italy);
+  font-weight: 600;
+  display: inline-block !important; /* 🔥 impede centralização */
+  text-align: left !important;
+}
+
+.lista-guia a:hover {
+  text-decoration: underline;
+}
