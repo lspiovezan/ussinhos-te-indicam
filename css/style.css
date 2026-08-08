@@ -48,7 +48,7 @@ body {
    ============================================================ */
 h1 {
   text-align: center;
-  font-size: clamp(1.8rem, 5vw, 2.5rem); /* ajusta dinamicamente */
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   word-wrap: break-word;
 }
 
@@ -82,7 +82,7 @@ a:hover {
 }
 
 /* ============================================================
-   LISTA GUIA — "O que você encontra aqui"
+   LISTA GUIA
    ============================================================ */
 .lista-guia {
   display: flex;
@@ -99,7 +99,7 @@ a:hover {
 }
 
 /* ============================================================
-   HEADER — Moderno
+   HEADER
    ============================================================ */
 header {
   position: fixed;
@@ -189,7 +189,7 @@ header {
 }
 
 /* ============================================================
-   CARDS — Apps e Bate-voltas
+   CARDS
    ============================================================ */
 .card, .app-card, .bate-voltas-card {
   background: #fff;
@@ -217,7 +217,6 @@ header {
   filter: brightness(1.1);
 }
 
-/* Labels */
 .app-title, .bate-voltas-label {
   font-size: 1.1rem;
   font-weight: 700;
@@ -227,7 +226,7 @@ header {
 }
 
 /* ============================================================
-   GRID — Mobile First
+   GRID
    ============================================================ */
 .grid, .apps-container, .bate-voltas-grid {
   display: grid;
@@ -296,7 +295,6 @@ footer {
     color: var(--color-secondary);
   }
 
-  /* Dropdowns */
   .submenu {
     position: absolute;
     background: var(--color-bg);
@@ -337,7 +335,7 @@ footer {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0;
+  margin: 0 auto;
   border-radius: 0;
   object-fit: cover;
 }
@@ -350,6 +348,39 @@ footer {
   }
 }
 
+/* ============================================================
+   MAPAS (IFRAME)
+   ============================================================ */
+
+.mapa {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;      /* MOBILE */
+  height: auto;
+  border: none;
+}
+
+@media (min-width: 700px) {
+  .mapa {
+    width: 80%;     /* TABLET */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mapa {
+    width: 60%;     /* DESKTOP */
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ============================================================
+   BOTÃO VOLTAR
+   ============================================================ */
 .back-button-container {
   text-align: center;
   margin: 40px 0;
@@ -357,7 +388,7 @@ footer {
 
 .back-button {
   display: inline-block;
-  background: #009246; /* Verde Itália */
+  background: #009246;
   color: #fff;
   font-size: 18px;
   font-weight: 600;
@@ -456,14 +487,14 @@ footer {
   width: 100vw;
   height: 100vh;
 
-  background: rgba(0, 0, 0, 0.75); /* 🔥 escurece o fundo */
-  backdrop-filter: blur(4px);      /* opcional: deixa mais bonito */
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  z-index: 9999; /* 🔥 bloqueia tudo */
+  z-index: 9999;
 }
 
 #password-box {
@@ -527,28 +558,26 @@ footer {
    ============================ */
 
 .lista-guia {
-  list-style: none !important;     
+  list-style: none !important;
   padding-left: 0 !important;
   margin-left: 0 !important;
 
   width: 100% !important;
   display: block !important;
 
-  text-align: left !important;     /* 🔥 força alinhamento à esquerda */
+  text-align: left !important;
 }
 
-/* Cada item fica um abaixo do outro */
 .lista-guia li {
-  display: block !important;       /* 🔥 garante que não fique lado a lado */
+  display: block !important;
   margin: 14px 0;
   font-size: 1.1rem;
 
   position: relative;
-  padding-left: 32px;              /* espaço para o emoji */
-  text-align: left !important;     /* 🔥 reforço */
+  padding-left: 32px;
+  text-align: left !important;
 }
 
-/* Emoji de ursinho como bullet */
 .lista-guia li::before {
   content: "🐻";
   position: absolute;
@@ -558,15 +587,26 @@ footer {
   line-height: 1;
 }
 
-/* Links alinhados à esquerda */
 .lista-guia a {
   text-decoration: none;
   color: var(--color-green-italy);
   font-weight: 600;
-  display: inline-block !important; /* 🔥 impede centralização */
+  display: inline-block !important;
   text-align: left !important;
 }
 
 .lista-guia a:hover {
   text-decoration: underline;
+}
+
+/* ============================================================
+   MARGENS DE 20% NO DESKTOP — ALTERAÇÃO SOLICITADA
+   ============================================================ */
+
+@media (min-width: 1200px) {
+  .conteudo {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
 }
