@@ -73,25 +73,40 @@
   const error = document.getElementById("password-error");
   const toggle = document.getElementById("toggle-password");
 
-  /* 🔥 Pop-up SEMPRE aparece */
-  overlay.style.display = "flex";
-  document.body.style.overflow = "hidden"; /* bloqueia scroll */
+  /* ============================================================
+     1. Verifica se já está autenticado
+     ============================================================ */
+  if (localStorage.getItem("ursinhosAuth") === "true") {
+    overlay.style.display = "none";
+    document.body.style.overflow = "auto";
+  } else {
+    overlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
 
+  /* ============================================================
+     2. Botão de login
+     ============================================================ */
   btn.addEventListener("click", () => {
     error.style.display = "none";
 
     if (input.value === "UssinhosItalianos") {
       overlay.style.display = "none";
-      document.body.style.overflow = "auto"; /* libera scroll */
+      document.body.style.overflow = "auto";
+
+      /* 🔥 Salva login para não pedir novamente */
+      localStorage.setItem("ursinhosAuth", "true");
     } else {
       error.style.display = "block";
     }
   });
 
+  /* Enter envia a senha */
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") btn.click();
   });
 
+  /* Mostrar/ocultar senha */
   toggle.addEventListener("click", () => {
     if (input.type === "password") {
       input.type = "text";
@@ -102,7 +117,7 @@
     }
   });
 
-  /* 🔒 Bloqueia ESC */
+  /* Bloqueia ESC */
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       e.preventDefault();
@@ -110,7 +125,7 @@
     }
   });
 
-  /* 🔒 Bloqueia inspeção */
+  /* Bloqueia inspeção */
   document.addEventListener("keydown", (e) => {
     if (
       (e.ctrlKey && e.shiftKey && e.key === "I") ||
@@ -122,7 +137,6 @@
     }
   });
 </script>
-
 
 </body>
 </html>
