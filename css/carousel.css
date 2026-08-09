@@ -1,3 +1,7 @@
+/* ============================================================
+   CARROSSEL — MOBILE + TABLET
+   ============================================================ */
+
 .carousel {
   position: relative;
   overflow: hidden;
@@ -5,10 +9,9 @@
   max-width: 1200px;
   margin: 0 auto;
   border-radius: 12px;
-  background: var(--color-background);
+  background: #fff;
 }
 
-/* MOBILE + TABLET */
 .carousel-track {
   display: flex;
   overflow-x: auto;
@@ -26,17 +29,22 @@
   scroll-snap-align: start;
 }
 
-/* Botões escondidos no mobile/tablet */
 .carousel-btn {
   display: none;
 }
 
-/* DESKTOP */
+/* ============================================================
+   DESKTOP — CARROSSEL REAL + MINIATURAS
+   ============================================================ */
+
 @media (min-width: 1200px) {
 
   .carousel-track {
-    overflow-x: hidden;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
     scroll-snap-type: none;
+    transition: transform 0.4s ease;
   }
 
   .carousel-track img {
@@ -73,7 +81,41 @@
 
   .carousel-thumb.active {
     opacity: 1;
-    border-color: var(--color-green-italy);
+    border-color: #009246;
     transform: scale(1.08);
+  }
+
+  .carousel-btn {
+    display: none !important;
+  }
+}
+
+
+/* ============================================================
+   ISOLAMENTO COMPLETO DO CARROSSEL
+   ============================================================ */
+
+.carousel-wrapper {
+  all: initial;          /* 🔥 zera TODAS as regras herdadas */
+  display: block;
+  width: 100%;
+}
+
+.carousel-wrapper * {
+  all: unset;            /* 🔥 zera TODAS as regras herdadas */
+  display: revert;       /* 🔥 restaura comportamento padrão */
+}
+
+/* Permite que o carrossel use seu próprio CSS normalmente */
+.carousel-wrapper .carousel,
+.carousel-wrapper .carousel-track,
+.carousel-wrapper .carousel-thumbs,
+.carousel-wrapper img {
+  all: revert;
+}
+
+@media (min-width: 1200px) {
+  .carousel-track img {
+    display: none !important; /* 🔥 esconde a versão grande no desktop */
   }
 }

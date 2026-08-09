@@ -1,36 +1,86 @@
 const track = document.querySelector('.carousel-track');
 const slides = Array.from(track.children);
-const nextBtn = document.querySelector('.carousel-btn.next');
-const prevBtn = document.querySelector('.carousel-btn.prev');
 
 let currentIndex = 0;
 
 /* ============================================================
-   MODO MOBILE/TABLET — SEM TRANSFORM
+   MOVE PARA O SLIDE CORRETO (DESKTOP)
+============================================================ */
+function updateCarousel() {
+  const width = track.clientWidth;
+  track.style.transform = `translateX(-${currentIndex * width}px)`;
+  updateThumbs?.();
+}
+
+/* ============================================================
+   MOBILE/TABLET — SCROLL NATURAL
 ============================================================ */
 function enableMobileMode() {
   track.style.transform = "none";
   track.style.overflowX = "auto";
 
-  nextBtn.style.display = "none";
-  prevBtn.style.display = "none";
-
-  // remove miniaturas se existirem
   const thumbs = document.querySelector('.carousel-thumbs');
   if (thumbs) thumbs.remove();
+
+  const preview = document.getElementById("carousel-preview");
+  if (preview) preview.remove();
+
+  slides.forEach(img => img.style.display = "block");
 }
 
 /* ============================================================
-   MODO DESKTOP — TRANSFORM + MINIATURAS
+   DESKTOP — MINIATURAS + PREVIEW
 ============================================================ */
 function enableDesktopMode() {
   track.style.overflowX = "hidden";
 
-  nextBtn.style.display = "none";
-  prevBtn.style.display = "none";
+  slides.forEach(img => img.style.display = "none");
 
   createThumbnails();
+  createPreviewContainer();
+
+  /* 🔥 MOSTRAR A PRIMEIRA IMAGEM AUTOMATICAMENTE */
+  showImageAboveThumbnails(slides[0].src);
+
   updateCarousel();
+}
+
+/* ============================================================
+   CRIA O CONTAINER PARA A IMAGEM GRANDE
+============================================================ */
+function createPreviewContainer() {
+  if (document.getElementById("carousel-preview")) return;
+
+  const preview = document.createElement("div");
+  preview.id = "carousel-preview";
+  preview.style.width = "100%";
+  preview.style.textAlign = "center";
+  preview.style.margin = "20px 0";
+  preview.style.display = "block";
+
+  const carousel = track.parentElement;
+  carousel.insertBefore(preview, carousel.querySelector(".carousel-thumbs"));
+}
+
+/* ============================================================
+   MOSTRA A IMAGEM CLICADA ACIMA DAS MINIATURAS
+============================================================ */
+function showImageAboveThumbnails(src) {
+  const preview = document.getElementById("carousel-preview");
+  if (!preview) return;
+
+  preview.innerHTML = `
+    <img src="${src}"
+         style="
+           height: 50vh;
+           width: auto;
+           max-width: 95%;
+           object-fit: contain;
+           border-radius: 12px;
+           box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+         "
+    />
+  `;
 }
 
 /* ============================================================
@@ -46,10 +96,16 @@ function createThumbnails() {
     const thumb = document.createElement('img');
     thumb.src = slide.src;
     thumb.className = 'carousel-thumb';
+
     thumb.onclick = () => {
       currentIndex = index;
+
+      console.log("Miniatura clicada:", slide.src);
+
       updateCarousel();
+      showImageAboveThumbnails(slide.src);
     };
+
     thumbsContainer.appendChild(thumb);
   });
 
@@ -62,15 +118,6 @@ function updateThumbs() {
   thumbs.forEach((thumb, index) => {
     thumb.classList.toggle('active', index === currentIndex);
   });
-}
-
-/* ============================================================
-   ATUALIZA SLIDE NO DESKTOP
-============================================================ */
-function updateCarousel() {
-  const width = track.offsetWidth; // largura REAL do carrossel
-  track.style.transform = `translateX(-${currentIndex * width}px)`;
-  updateThumbs();
 }
 
 /* ============================================================
