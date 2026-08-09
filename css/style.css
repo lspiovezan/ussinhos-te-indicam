@@ -610,3 +610,38 @@ footer {
     margin-right: 20%;
   }
 }
+
+
+/* ============================================================
+   AJUSTES DO IFRAME — NÃO SOBREPOR FOOTER E BOTÕES
+   ============================================================ */
+
+/* MOBILE — altura de 30% da tela */
+@media (max-width: 699px) {
+  .mapa {
+    height: 40vh !important;   /* 🔥 altura segura */
+    max-height: 40vh !important;
+    display: block;
+    overflow: hidden;          /* 🔥 impede ultrapassar elementos */
+  }
+}
+
+/* TABLET — altura de 40% da tela */
+@media (min-width: 700px) and (max-width: 1199px) {
+  .mapa {
+    height: 60vh !important;   /* 🔥 altura segura */
+    max-height: 60vh !important;
+    display: block;
+    overflow: hidden;
+  }
+}
+
+/* DESKTOP — mantém como está (60vh) */
+@media (min-width: 1200px) {
+  .mapa {
+    height: 60vh !important;   /* já existia */
+    max-height: 60vh !important;
+    display: block;
+    overflow: hidden;
+  }
+}
