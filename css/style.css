@@ -440,9 +440,10 @@ footer {
   gap: 20px;
 }
 
+/* 🔥 Cards mais finos para caber 4 por linha no desktop */
 .card-compras {
   background-color: #fff;
-  width: 220px;
+  width: 180px; /* antes 220px — agora mais fino */
   padding: 15px;
   border: 1px solid #ddd;
   box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
@@ -457,22 +458,23 @@ footer {
 }
 
 .logo-compras {
-  width: 100px;
+  width: 80px; /* menor para caber melhor */
   height: auto;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .nome-loja-compras {
-  font-size: 18px;
-  margin: 10px 0;
+  font-size: 16px; /* levemente menor */
+  margin: 8px 0;
   color: #444;
 }
 
 .texto-compras {
-  font-size: 14px;
+  font-size: 13px;
   color: #666;
 }
 
+/* Efeito polaroid */
 .card-compras::after {
   content: "";
   position: absolute;
@@ -484,6 +486,32 @@ footer {
   filter: blur(4px);
   z-index: -1;
 }
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+
+/* Mobile — mantém 2 por linha */
+@media (max-width: 699px) {
+  .card-compras {
+    width: 45%;
+  }
+}
+
+/* Tablet — 3 por linha */
+@media (min-width: 700px) and (max-width: 1199px) {
+  .card-compras {
+    width: 30%;
+  }
+}
+
+/* Desktop — 4 por linha garantidos */
+@media (min-width: 1200px) {
+  .card-compras {
+    width: 180px; /* tamanho fixo para caber 4 */
+  }
+}
+
 
 /* ============================
    POP-UP DE SENHA
