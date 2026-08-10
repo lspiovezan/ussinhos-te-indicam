@@ -72,7 +72,7 @@ function showImageAboveThumbnails(src) {
   preview.innerHTML = `
     <img src="${src}"
          style="
-           height: 50vh;
+           height: 80vh;
            width: auto;
            max-width: 95%;
            object-fit: contain;

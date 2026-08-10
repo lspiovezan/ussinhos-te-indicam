@@ -359,32 +359,43 @@ footer {
   width: 100%;
   height: auto;
   border: none;
+  overflow: hidden; /* garante o corte */
+  
+  /* 🔥 TRUQUE PARA ESCONDER A BARRA SUPERIOR DO MAPA */
+  transform: translateY(-35px); /* sobe o mapa e esconde o topo */
 }
 
+/* MOBILE */
 @media (max-width: 699px) {
   .mapa {
     height: 40vh !important;
     max-height: 40vh !important;
     overflow: hidden;
+    transform: translateY(-30px); /* ajuste fino para mobile */
   }
 }
 
+/* TABLET */
 @media (min-width: 700px) and (max-width: 1199px) {
   .mapa {
     height: 60vh !important;
     max-height: 60vh !important;
     overflow: hidden;
+    transform: translateY(-35px);
   }
 }
 
+/* DESKTOP */
 @media (min-width: 1200px) {
   .mapa {
     width: 60%;
     height: 60vh;
     max-height: 60vh;
     overflow: hidden;
+    transform: translateY(-40px); /* sobe mais no desktop */
   }
 }
+
 
 /* ============================================================
    BOTÃO VOLTAR
