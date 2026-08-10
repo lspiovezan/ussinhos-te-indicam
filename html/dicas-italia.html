@@ -10,47 +10,70 @@
   <link rel="stylesheet" href="../css/header.css">
 
   <style>
-    /* ============================
-       ESTILO DA TABELA DE VOCABULÁRIO
-       ============================ */
+/* ============================
+   ESTILO DA TABELA DE VOCABULÁRIO
+   ============================ */
 
-    .vocab-table {
-      width: 60%;
-      margin: 30px auto;
-      border-collapse: collapse;
-      background: #fff;
-      border: 2px solid #ccc; /* 🔥 borda mais escura */
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
+.vocab-table {
+  width: 60%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: #fff;
+  border: 2px solid #ccc; /* borda externa mais escura */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
 
-    .vocab-table th,
-    .vocab-table td {
-      border: 1px solid #ddd; /* 🔥 linha interna mais escura */
-      padding: 12px 16px;
-      text-align: left;
-      font-size: 1rem;
-      color: var(--color-green-italy);
-    }
+/* MOBILE — tabela 100% */
+@media (max-width: 699px) {
+  .vocab-table {
+    width: 100% !important;
+    margin: 20px auto;
+  }
+}
 
-    .vocab-table th {
-      background: #f0f0f0;
-      font-weight: 700;
-    }
+/* TABLET — tabela 80% */
+@media (min-width: 700px) and (max-width: 1199px) {
+  .vocab-table {
+    width: 80% !important;
+    margin: 25px auto;
+  }
+}
 
-    /* Botão de áudio */
-    .speak-btn {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 1.2rem;
-      margin-left: 10px;
-      transition: 0.2s ease;
-    }
+/* DESKTOP — mantém 60% */
+@media (min-width: 1200px) {
+  .vocab-table {
+    width: 60%;
+  }
+}
 
-    .speak-btn:hover {
-      transform: scale(1.2);
-      color: var(--color-secondary);
-    }
+.vocab-table th,
+.vocab-table td {
+  border: 1px solid #ddd; /* linhas internas mais escuras */
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 1rem;
+  color: var(--color-green-italy);
+}
+
+.vocab-table th {
+  background: #f0f0f0;
+  font-weight: 700;
+}
+
+/* Botão de áudio (emoji 🔊) */
+.speak-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  transition: 0.2s ease;
+}
+
+.speak-btn:hover {
+  transform: scale(1.2);
+  color: var(--color-secondary);
+}
   </style>
 </head>
 
