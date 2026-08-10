@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const apps = [
     {
       nome: "The Fork",
-      categoria: "Alimentação",
       descricao: "App para reservar restaurantes na Itália e Europa, com avaliações e ótimos descontos.",
       android: "https://play.google.com/store/apps/details?id=com.lafourchette.lafourchette",
       iphone: "https://apps.apple.com/it/app/thefork-ristoranti-e-offerte/id424850908",
@@ -11,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       nome: "ATM Milano",
-      categoria: "Transporte",
       descricao: "App oficial para metrô, ônibus e tram de Milão.",
       android: "https://play.google.com/store/apps/details?id=it.atm.milano",
       iphone: "https://apps.apple.com/app/atm-milano/id123456789",
@@ -19,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {  
       nome: "Omio",
-      categoria: "Transporte",
       descricao: "Reserve trens, ônibus e voos dentro da Europa em um só app.",
       android: "https://play.google.com/store/apps/details?id=com.goeuro.rosie",
       iphone: "https://apps.apple.com/us/app/omio-book-train-bus-flight/id885372509",
@@ -27,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {  
       nome: "Trenitalia",
-      categoria: "Transporte",
       descricao: "App oficial da companhia ferroviária italiana, essencial para viagens de Milão a outras cidades.",
       android: "https://play.google.com/store/apps/details?id=com.lynxspa.prontotreno",
       iphone: "https://apps.apple.com/us/app/trenitalia/id331050847",
@@ -35,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {  
       nome: "EasyPark",
-      categoria: "Transporte",
       descricao: "App para encontrar vagas de estacionamento e pagar pelo tempo de uso em várias cidades da Itália.",
       android: "https://play.google.com/store/apps/details?id=net.easypark.android",
       iphone: "https://apps.apple.com/us/app/easypark-parking-made-easy/id449594317",
@@ -43,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {  
       nome: "Too Good To Go",
-      categoria: "Alimentação",
       descricao: "Encontre comida de restaurantes e padarias a preços reduzidos, muito popular na Itália.",
       android: "https://play.google.com/store/apps/details?id=com.app.tgtg",
       iphone: "https://apps.apple.com/us/app/too-good-to-go-save-good-food/id1060683933",
@@ -65,9 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <h3 class="app-title">${app.nome}</h3>
 
-      <p class="app-category">
-        Categoria: <strong>${app.categoria}</strong>
-      </p>
 
       <p class="app-desc">
         ${app.descricao}
@@ -75,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="app-buttons">
         <a class="store-btn" href="${app.android}" target="_blank">
-            <img src="../img/icons/android.png" alt="Android">
+            <img src="../img/icons/android.svg" alt="Android">
         </a>
         <a class="store-btn" href="${app.iphone}" target="_blank">
             <img src="../img/icons/iphone.svg" alt="iPhone">
