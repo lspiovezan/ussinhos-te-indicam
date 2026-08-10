@@ -28,7 +28,7 @@ html, body {
   line-height: 1.6;
   margin: 0;
   padding-top: var(--header-height);
-  overflow-x: hidden; /* bloqueia scroll lateral */
+  overflow-x: hidden;
 }
 
 html {
@@ -356,25 +356,33 @@ footer {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;      /* MOBILE */
+  width: 100%;
   height: auto;
   border: none;
 }
 
-@media (min-width: 700px) {
+@media (max-width: 699px) {
   .mapa {
-    width: 80%;     /* TABLET */
-    margin-left: auto;
-    margin-right: auto;
+    height: 40vh !important;
+    max-height: 40vh !important;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1199px) {
+  .mapa {
+    height: 60vh !important;
+    max-height: 60vh !important;
+    overflow: hidden;
   }
 }
 
 @media (min-width: 1200px) {
   .mapa {
-    width: 60%;     /* DESKTOP */
+    width: 60%;
     height: 60vh;
-    margin-left: auto;
-    margin-right: auto;
+    max-height: 60vh;
+    overflow: hidden;
   }
 }
 
@@ -398,7 +406,6 @@ footer {
   text-decoration: none;
   transition: 0.3s ease;
   box-shadow: var(--shadow-md);
-  
 }
 
 .back-button:hover {
@@ -488,14 +495,11 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(4px);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 9999;
 }
 
@@ -563,10 +567,8 @@ footer {
   list-style: none !important;
   padding-left: 0 !important;
   margin-left: 0 !important;
-
   width: 100% !important;
   display: block !important;
-
   text-align: left !important;
 }
 
@@ -574,7 +576,6 @@ footer {
   display: block !important;
   margin: 14px 0;
   font-size: 1.1rem;
-
   position: relative;
   padding-left: 32px;
   text-align: left !important;
@@ -602,48 +603,24 @@ footer {
 }
 
 /* ============================================================
-   MARGENS DE 20% NO DESKTOP — ALTERAÇÃO SOLICITADA
+   PADRONIZAÇÃO GLOBAL DE MARGENS NO DESKTOP
    ============================================================ */
 
 @media (min-width: 1200px) {
-  .conteudo {
+
+  main, .panel, .apps-page main {
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
   }
-}
 
-
-/* ============================================================
-   AJUSTES DO IFRAME — NÃO SOBREPOR FOOTER E BOTÕES
-   ============================================================ */
-
-/* MOBILE — altura de 30% da tela */
-@media (max-width: 699px) {
+  header,
+  footer,
+  .carousel-wrapper,
+  .full-width-image,
   .mapa {
-    height: 40vh !important;   /* 🔥 altura segura */
-    max-height: 40vh !important;
-    display: block;
-    overflow: hidden;          /* 🔥 impede ultrapassar elementos */
-  }
-}
-
-/* TABLET — altura de 40% da tela */
-@media (min-width: 700px) and (max-width: 1199px) {
-  .mapa {
-    height: 60vh !important;   /* 🔥 altura segura */
-    max-height: 60vh !important;
-    display: block;
-    overflow: hidden;
-  }
-}
-
-/* DESKTOP — mantém como está (60vh) */
-@media (min-width: 1200px) {
-  .mapa {
-    height: 60vh !important;   /* já existia */
-    max-height: 60vh !important;
-    display: block;
-    overflow: hidden;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
