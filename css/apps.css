@@ -163,3 +163,37 @@
   width: 26px;
   height: 26px;
 }
+
+/* ============================================================
+   PADRONIZAÇÃO DOS CARDS NO DESKTOP
+   ============================================================ */
+
+@media (min-width: 1200px) {
+
+  /* Cada card vira um flex container vertical */
+  .apps-page .app-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* empurra botões para baixo */
+    height: 420px; /* 🔥 altura padronizada */
+  }
+
+  /* A imagem fica com tamanho fixo */
+  .apps-page .app-image img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  /* A descrição ocupa espaço flexível */
+  .apps-page .app-desc {
+    flex: 1; /* 🔥 cresce para ocupar espaço */
+    margin-bottom: 20px;
+  }
+
+  /* Botões sempre grudados no final */
+  .apps-page .app-buttons {
+    margin-top: auto; /* 🔥 garante alinhamento inferior */
+    padding-top: 10px;
+  }
+}

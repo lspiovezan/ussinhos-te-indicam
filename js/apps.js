@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       nome: "The Fork",
       categoria: "Alimentação",
-      descricao: "App perfeito para realizar reservas em restaurantes na Itália e Europa, com avaliações de usuários. E o melhor de tudo, tem muitos descontos disponíveis para você aproveitar!",
+      descricao: "App para reservar restaurantes na Itália e Europa, com avaliações e ótimos descontos.",
       android: "https://play.google.com/store/apps/details?id=com.lafourchette.lafourchette",
       iphone: "https://apps.apple.com/it/app/thefork-ristoranti-e-offerte/id424850908",
       imagem: "../img/apps/the-fork-logo.jpg"
