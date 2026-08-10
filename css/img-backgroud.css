@@ -75,6 +75,21 @@
     background-image: url("../img/roma.jpeg");
   }
   
+  .bg-perugia .bate-voltas-img {
+    background-image: url("../img/perugia.jpg");
+  }
+
+  .bg-florenca .bate-voltas-img {
+    background-image: url("../img/florenca.jpg");
+  }
+
+  .bg-bolonha .bate-voltas-img {
+    background-image: url("../img/bolonha.jpg");
+  }
+
+  .bg-arezzo .bate-voltas-img {
+    background-image: url("../img/arezzo.jpg");
+  }
 
   
   /* ============================================================
