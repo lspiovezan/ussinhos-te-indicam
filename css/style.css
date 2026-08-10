@@ -342,7 +342,7 @@ footer {
 
 @media (min-width: 1024px) {
   .full-width-image {
-    width: 33%;
+    width: 40%;
     margin: 0 auto;
     border-radius: 12px;
   }
@@ -656,10 +656,10 @@ footer {
   header,
   footer,
   .carousel-wrapper,
-  .full-width-image,
   .mapa {
     width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+
 }
