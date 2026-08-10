@@ -8,107 +8,138 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/header.css">
+
+  <style>
+    /* ============================
+       ESTILO DA TABELA DE VOCABULÁRIO
+       ============================ */
+
+    .vocab-table {
+      width: 60%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background: #fff;
+      border: 2px solid #ccc; /* 🔥 borda mais escura */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .vocab-table th,
+    .vocab-table td {
+      border: 1px solid #ddd; /* 🔥 linha interna mais escura */
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 1rem;
+      color: var(--color-green-italy);
+    }
+
+    .vocab-table th {
+      background: #f0f0f0;
+      font-weight: 700;
+    }
+
+    /* Botão de áudio */
+    .speak-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-left: 10px;
+      transition: 0.2s ease;
+    }
+
+    .speak-btn:hover {
+      transform: scale(1.2);
+      color: var(--color-secondary);
+    }
+  </style>
 </head>
+
 <body>
-   <!-- HEADER -->
+
+  <!-- HEADER -->
   <script src="../js/header.js"></script>
 
   <main class="page-content fade-in">
 
     <h1>Curiosidades e dicas sobre a Itália</h1>
 
-  <!-- Horários e alimentação -->
-  <h2>🕒 Horários e alimentação</h2>
+    <!-- Horários e alimentação -->
+    <h2>🕒 Horários e alimentação</h2>
     <img class="full-width-image" src="../img/capuccino.png" alt="Casal tomando café da manhã na Itália, com cappuccino e cornetto">
-  <p>
-    Na Itália, os horários são diferentes do que a gente está acostumado.
-  </p>
-  <ul>
-    <li><strong>Almoço e jantar:</strong> o almoço rola por volta das 13h e o jantar só depois das 20h. Se você tem um restaurante específico em mente, <em>reserve antes</em>, porque os lugares mais disputados lotam rápido.</li>
-    <li><strong>Café da manhã:</strong> esqueça mesas fartas de hotel com mil opções. Aqui é café expresso e um croissant (<em>cornetto</em>) — simples e direto. Até nos hotéis, não espere aquele banquete matinal estilo brasileiro.</li>
-    <li><strong>Supermercados:</strong> aproveite para comprar produtos locais e diferentes, tipo queijos, embutidos e vinhos que você não encontra no Brasil. É uma experiência por si só.</li>
-  </ul>
-  <p><strong>Dica dos Ussinhos 🐻💡:</strong> evite restaurantes com cardápio em inglês cheio de fotos e com alguém na porta te chamando. Prefira lugares com menu simples e, principalmente, onde você vê italianos comendo. É ali que mora a comida de verdade!</p>
+    <p>Na Itália, os horários são diferentes do que a gente está acostumado.</p>
+    <ul>
+      <li><strong>Almoço e jantar:</strong> o almoço rola por volta das 13h e o jantar só depois das 20h.</li>
+      <li><strong>Café da manhã:</strong> aqui é café expresso e um croissant (<em>cornetto</em>).</li>
+      <li><strong>Supermercados:</strong> aproveite para comprar produtos locais.</li>
+    </ul>
 
-  <!-- Aperitivo -->
-  <h2>🍹 O costume do aperitivo</h2>
-  <img class="full-width-image" src="../img/aperitivo.png" alt="Casal fazendo aperitivo em um bar na Itália, com drinks e petiscos">
-  <p>
-    Entre 18h e 20h, os bares oferecem o famoso <strong>aperitivo</strong>: você pede uma bebida (em média €8–12) e ganha acesso a petiscos ou até mini-buffets. É quase um jantar disfarçado de happy hour.
-  </p>
-  <p><strong>Dica dos Ussinhos 🐻💡:</strong> vá em bares fora das áreas turísticas. O preço é melhor e os petiscos são mais caprichados.</p>
+    <!-- Aperitivo -->
+    <h2>🍹 O costume do aperitivo</h2>
+    <img class="full-width-image" src="../img/aperitivo.png" alt="Casal fazendo aperitivo em um bar na Itália">
+    <p>Entre 18h e 20h, os bares oferecem o famoso <strong>aperitivo</strong>.</p>
 
-  <!-- Coperto -->
-  <h2>🍽️ O que é o <em>coperto</em>?</h2>
-  <p>
-    Nos restaurantes, é comum cobrar uma taxa fixa chamada <em>coperto</em>. Ela cobre o serviço de mesa e o pão servido.
-  </p>
-  <ul>
-    <li>Valor: geralmente entre €1 e €3 por pessoa.</li>
-    <li>Não é gorjeta, mas sim uma prática cultural.</li>
-    <li>Na Itália não é comum dar gorjeta aos garçons. O <em>coperto</em> já faz essa função.</li>
-  </ul>
+    <!-- Coperto -->
+    <h2>🍽️ O que é o <em>coperto</em>?</h2>
+    <p>Nos restaurantes, é comum cobrar uma taxa fixa chamada <em>coperto</em>.</p>
 
-  <!-- ZTL -->
-  <h2>🚗 Atenção à ZTL (Zona a Traffico Limitato)</h2>
-    <img class="full-width-image" src="../img/ztl.png" alt="Placa de trânsito indicando Zona de Tráfego Limitado (ZTL) na Itália">
-  <p>
-    Se você pretende alugar carro, cuidado com as áreas de tráfego limitado nos centros históricos. Entrar sem autorização gera multa automática, porque as câmeras não perdoam.
-  </p>
-  <p><strong>Dica dos Ussinhos 🐻💡:</strong> o transporte público é eficiente… mesmo com as mil greves por ano. Então pense bem antes de se aventurar de carro!</p>
+    <!-- ZTL -->
+    <h2>🚗 Atenção à ZTL (Zona a Traffico Limitato)</h2>
+    <img class="full-width-image" src="../img/ztl.png" alt="Placa de ZTL na Itália">
+    <p>Cuidado com as áreas de tráfego limitado.</p>
 
-  <!-- Gelaterias -->
-  <h2>🍦 Gelaterias</h2>
-  <img class="full-width-image" src="../img/gelato.png" alt="Gelateria na Itália, com sorvete exposto na vitrine">
-  <p>
-    Outro detalhe que aprendemos rápido: se você ver uma gelateria com uma “montanha de sorvete” colorida exposta na vitrine, fuja! O verdadeiro gelato italiano não tem consistência suficiente para ficar empilhado daquele jeito.
-  </p>
-  <p><strong>Dica dos Ussinhos 🐻💡:</strong> prefira gelaterias onde o sorvete fica guardado em recipientes fechados. É ali que você encontra o gelato de verdade. E claro, vamos indicar nossas favoritas no <em>Mapa dos Ussinhos</em>.</p>
+    <!-- Gelaterias -->
+    <h2>🍦 Gelaterias</h2>
+    <img class="full-width-image" src="../img/gelato.png" alt="Gelateria na Itália">
+    <p>Se você ver uma gelateria com “montanhas de sorvete”, fuja!</p>
 
-  <!-- Golpes -->
-  <h2>⚠️ Attenzione Pickpocket!</h2>
-  <img class="full-width-image" src="../img/pickpocket.png" alt="Pessoa sendo roubada em uma área movimentada na Itália">
-  <p>
-    Além dos golpes clássicos (braceletes “de presente”, ajuda suspeita em máquinas de bilhete, pedidos de assinatura em papéis), fique atento aos <strong>pickpockets</strong> — os famosos batedores de carteira.
-  </p>
-  <ul>
-    <li>Adoram lugares cheios: metrô, trens, pontos turísticos.</li>
-    <li>Bolsas abertas e celulares no bolso de trás são convites.</li>
-  </ul>
-  <p><strong>Dica dos Ussinhos 🐻💡:</strong> se alguém for “gentil demais” tentando te ajudar, já desconfie. Gentileza italiana existe, mas não vem acompanhada de insistência exagerada.</p>
+    <!-- Golpes -->
+    <h2>⚠️ Attenzione Pickpocket!</h2>
+    <img class="full-width-image" src="../img/pickpocket.png" alt="Pessoa sendo roubada na Itália">
+    <p>Fique atento aos <strong>pickpockets</strong>.</p>
 
-  <!-- Vocabulário -->
-  <h2>🗣️ Vocabulário básico</h2>
-  <img class="full-width-image" src="../img/vocabulario.png" alt="Tabela com palavras em português e italiano">
-  <table class="vocab-table">
-    <thead>
-      <tr>
-        <th>🇧🇷 Português</th>
-        <th>🇮🇹 Italiano</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Obrigado</td><td>Grazie</td></tr>
-      <tr><td>Por favor</td><td>Per favore</td></tr>
-      <tr><td>Desculpe</td><td>Scusi</td></tr>
-      <tr><td>Bilhete</td><td>Biglietto</td></tr>
-      <tr><td>Quanto custa?</td><td>Quanto costa?</td></tr>
-      <tr><td>Bom dia</td><td>Buongiorno</td></tr>
-      <tr><td>Boa noite</td><td>Buonasera</td></tr>
-      <tr><td>Onde fica...</td><td>Dov’è...</td></tr>
-      <tr><td>Banheiro</td><td>Bagno</td></tr>
-      <tr><td>Parada</td><td>Fermata</td></tr>
-      <tr><td>Eu gostaria...</td><td>Vorrei...</td></tr>
-      <tr><td>Não falo italiano</td><td>Non parlo italiano</td></tr>
-    </tbody>
-  </table>
-  <p><strong>Dica dos Ussinhos 🐻💡:</strong> mesmo falando só “grazie” com sotaque, você já ganha pontos de simpatia.</p>
+    <!-- Vocabulário -->
+    <h2>🗣️ Vocabulário básico</h2>
+    <img class="full-width-image" src="../img/vocabulario.png" alt="Tabela com palavras em português e italiano">
 
-</main>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>🇧🇷 Português</th>
+          <th>🇮🇹 Italiano</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Obrigado</td><td>Grazie <button class="speak-btn" onclick="speak('Grazie')">🔊</button></td></tr>
+        <tr><td>Por favor</td><td>Per favore <button class="speak-btn" onclick="speak('Per favore')">🔊</button></td></tr>
+        <tr><td>Desculpe</td><td>Scusi <button class="speak-btn" onclick="speak('Scusi')">🔊</button></td></tr>
+        <tr><td>Bilhete</td><td>Biglietto <button class="speak-btn" onclick="speak('Biglietto')">🔊</button></td></tr>
+        <tr><td>Quanto custa?</td><td>Quanto costa? <button class="speak-btn" onclick="speak('Quanto costa?')">🔊</button></td></tr>
+        <tr><td>Bom dia</td><td>Buongiorno <button class="speak-btn" onclick="speak('Buongiorno')">🔊</button></td></tr>
+        <tr><td>Boa noite</td><td>Buonasera <button class="speak-btn" onclick="speak('Buonasera')">🔊</button></td></tr>
+        <tr><td>Onde fica...</td><td>Dov’è <button class="speak-btn" onclick="speak('Dov’è')">🔊</button></td></tr>
+        <tr><td>Banheiro</td><td>Bagno <button class="speak-btn" onclick="speak('Bagno')">🔊</button></td></tr>
+        <tr><td>Parada</td><td>Fermata <button class="speak-btn" onclick="speak('Fermata')">🔊</button></td></tr>
+        <tr><td>Eu gostaria...</td><td>Vorrei <button class="speak-btn" onclick="speak('Vorrei')">🔊</button></td></tr>
+        <tr><td>Não falo italiano</td><td>Non parlo italiano <button class="speak-btn" onclick="speak('Non parlo italiano')">🔊</button></td></tr>
+      </tbody>
+    </table>
 
+    <p><strong>Dica dos Ussinhos 🐻💡:</strong> mesmo falando só “grazie”, você já ganha pontos de simpatia.</p>
+
+  </main>
 
   <script src="../js/footer.js"></script>
-  <!-- JS do bloqueio de zoom -->
   <script src="../js/zoom-block.js"></script>
+
+  <!-- JS para falar palavras em italiano -->
+  <script>
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "it-IT";
+      utterance.rate = 0.95;
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+
 </body>
 </html>
